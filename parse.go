@@ -1,6 +1,7 @@
 package parse
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -118,15 +119,23 @@ func Parse(path string) ([]*packages.PackageFile, error) {
 	}
 
 	if info.IsDir() {
-		files, err := os.ReadDir(path)
+		dirFiles, err := os.ReadDir(path)
 		if err != nil {
 			return nil, err
 		}
-		for _, file := range files {
-			files = append(files, file)
+		for _, entry := range dirFiles {
+			// Don't recursively go in directories, only go one level deep.
+			if !entry.IsDir() {
+				fullPath := filepath.Join(path, entry.Name())
+				files = append(files, fullPath)
+			}
 		}
 	} else {
 		files = append(files, path)
+	}
+
+	if len(files) == 0 {
+		return nil, errors.New("no files to parse")
 	}
 
 	return parse(files)
