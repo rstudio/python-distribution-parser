@@ -133,6 +133,11 @@ type Distribution interface {
 	GetName() string
 	GetVersion() string
 	GetPythonVersion() string
+
+	// This is used to return a map of all the metadata,
+	// similar to how twine passes the metadata in a multipart
+	// form request.
+	MetadataMap() map[string][]string
 }
 
 type BaseDistribution struct {
@@ -255,4 +260,46 @@ func (bd *BaseDistribution) setJSONValue(fieldName string, value interface{}) er
 		}
 	}
 	return fmt.Errorf("no such json field: %s in object", fieldName)
+}
+
+func StructToMap(input interface{}) map[string][]string {
+	result := make(map[string][]string)
+
+	v := reflect.ValueOf(input)
+	if v.Kind() == reflect.Ptr {
+		v = v.Elem()
+	}
+	t := reflect.TypeOf(input)
+	if t.Kind() == reflect.Ptr {
+		t = t.Elem()
+	}
+
+	for i := 0; i < v.NumField(); i++ {
+		field := t.Field(i)
+		fieldName := v.Type().Field(i).Name
+		fieldValue := v.Field(i)
+
+		jsonTag := field.Tag.Get("json")
+		if jsonTag != "" {
+			fieldName = jsonTag
+		}
+
+		if fieldValue.Kind() == reflect.Struct {
+			subMap := StructToMap(fieldValue.Interface())
+			for subKey, subValue := range subMap {
+				result[subKey] = subValue
+			}
+		} else {
+			switch val := fieldValue.Interface().(type) {
+			case string:
+				result[fieldName] = []string{val}
+			case []string:
+				result[fieldName] = val
+			default:
+				result[fieldName] = []string{fmt.Sprintf("%v", val)}
+			}
+		}
+	}
+
+	return result
 }

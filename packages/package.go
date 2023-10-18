@@ -11,23 +11,24 @@ import (
 )
 
 type PackageFile struct {
-	Filename           string                      `json:"filename"`
+	Filename           string                      `json:"file_name"`
+	Comment            string                      `json:"comment"`
 	BaseFilename       string                      `json:"base_filename"`
 	Metadata           *distributions.Distribution `json:"metadata"`
-	PythonVersion      string                      `json:"python_version"`
-	FileType           string                      `json:"file_type"`
+	PythonVersion      string                      `json:"pyversion"`
+	FileType           string                      `json:"filetype"`
 	SafeName           string                      `json:"safe_name"`
 	SignedFilename     string                      `json:"signed_filename"`
 	SignedBaseFilename string                      `json:"signed_base_filename"`
 	GPGSignature       *Signature                  `json:"gpg_signature"`
 	MD5Digest          string                      `json:"md5_digest"`
-	SHA2Digest         string                      `json:"sha2_digest"`
+	SHA2Digest         string                      `json:"sha256_digest"`
 	Blake2_256Digest   string                      `json:"blake2_256_digest"`
 }
 
 type Signature struct {
-	Filename string `json:"filename"`
-	Bytes    []byte `json:"bytes"`
+	Filename string `json:"signed_filename"`
+	Bytes    []byte `json:"signed_bytes"`
 }
 
 // Convert an arbitrary string to a standard distribution name.
@@ -60,6 +61,7 @@ func NewPackageFile(filename string) (*PackageFile, error) {
 
 	return &PackageFile{
 		Filename:           filename,
+		Comment:            "", // Adding a comment isn't currently possible
 		BaseFilename:       baseFilename,
 		Metadata:           &metadata,
 		PythonVersion:      pythonVersion,
@@ -71,6 +73,25 @@ func NewPackageFile(filename string) (*PackageFile, error) {
 		SHA2Digest:         hexdigest.sha2,
 		Blake2_256Digest:   hexdigest.blake2,
 	}, nil
+}
+
+func (pf *PackageFile) MetadataMap() map[string][]string {
+	pkgMap := distributions.StructToMap(pf)
+	metadata := *pf.Metadata
+	metadataMap := metadata.MetadataMap()
+	result := make(map[string][]string, len(pkgMap)+len(metadataMap))
+	for pk, pv := range pkgMap {
+		result[pk] = pv
+	}
+	for mk, mv := range metadataMap {
+		result[mk] = mv
+	}
+
+	// This makes the request look more like Twine
+	pkgMap["protocol_version"] = []string{"1"}
+	delete(pkgMap, "metadata")
+
+	return result
 }
 
 func (pf *PackageFile) AddGPGSignature(signatureFilepath string, signatureFilename string) error {
