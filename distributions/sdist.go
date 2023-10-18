@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"fmt"
 	"path/filepath"
-	"reflect"
 	"sort"
 	"strings"
 
@@ -27,23 +26,7 @@ func NewSDist(filename string) (Distribution, error) {
 }
 
 func (sd *SDist) MetadataMap() map[string][]string {
-	metadataMap := make(map[string][]string, 0)
-
-	v := reflect.ValueOf(sd)
-	for i := 0; i < v.NumField(); i++ {
-		field := v.Field(i)
-		fieldName := v.Type().Field(i).Name
-		fieldValue := field.Interface()
-		switch val := fieldValue.(type) {
-		case string:
-			metadataMap[fieldName] = []string{val}
-		case []string:
-			metadataMap[fieldName] = val
-		default:
-			metadataMap[fieldName] = []string{fmt.Sprintf("%v", val)}
-		}
-	}
-	return metadataMap
+	return StructToMap(*sd)
 }
 
 func (sd *SDist) ExtractMetadata() error {

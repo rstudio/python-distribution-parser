@@ -31,26 +31,7 @@ func NewWheel(filename string) (Distribution, error) {
 }
 
 func (whl *Wheel) MetadataMap() map[string][]string {
-	result := StructToMap(*whl)
-	return result
-
-	// metadataMap := make(map[string][]string, 0)
-	// v := reflect.ValueOf(whl).Elem()
-	// for i := 0; i < v.NumField(); i++ {
-	// 	field := v.Field(i)
-	// 	fieldName := v.Type().Field(i).Name
-	// 	fmt.Println(fieldName)
-	// 	fieldValue := field.Interface()
-	// 	switch val := fieldValue.(type) {
-	// 	case string:
-	// 		metadataMap[fieldName] = []string{val}
-	// 	case []string:
-	// 		metadataMap[fieldName] = val
-	// 	interface{}:
-	// 		fmt.Printf("type: %T\n", val)
-	// 		metadataMap[fieldName] = []string{fmt.Sprintf("%v", val)}
-	// }
-	// return metadataMap
+	return StructToMap(*whl)
 }
 
 func (whl *Wheel) ExtractMetadata() error {
