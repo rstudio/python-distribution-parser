@@ -12,7 +12,7 @@ import (
 
 type SDist struct {
 	BaseDistribution
-	Filename string `json:"filename"`
+	Filename string `json:"file_name"`
 }
 
 func NewSDist(filename string) (Distribution, error) {

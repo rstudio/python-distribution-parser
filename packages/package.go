@@ -88,8 +88,8 @@ func (pf *PackageFile) MetadataMap() map[string][]string {
 	}
 
 	// This makes the request look more like Twine
-	pkgMap["protocol_version"] = []string{"1"}
-	delete(pkgMap, "metadata")
+	result["protocol_version"] = []string{"1"}
+	delete(result, "metadata")
 
 	return result
 }
