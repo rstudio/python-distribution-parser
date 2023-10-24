@@ -6,6 +6,7 @@ import (
 	"encoding/hex"
 	"hash"
 	"io"
+	"log"
 	"os"
 
 	"golang.org/x/crypto/blake2b"
@@ -88,7 +89,12 @@ func (hm *HashManager) Hash() error {
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	defer func(file *os.File) {
+		err := file.Close()
+		if err != nil {
+			log.Printf("error closing file: %v", err)
+		}
+	}(file)
 
 	buffer := make([]byte, 64*1024)
 	for {

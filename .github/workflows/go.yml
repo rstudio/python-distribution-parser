@@ -1,0 +1,43 @@
+name: Go CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: install go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 'stable'
+      - name: install python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      # Rust is required to build some packages
+      - name: install rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: install python dependencies
+        run: pip install twine build wheel
+      - name: install go dependencies
+        run: go install gotest.tools/gotestsum@latest
+      - name: run golangci-lint
+        uses: reviewdog/action-golangci-lint@v2
+      - name: build
+        run: go build
+      - name: test
+        run: gotestsum --jsonfile unit-tests.json
+      - name: annotate tests
+        if: always()
+        uses: guyarb/golang-test-annotations@v0.5.1
+        with:
+          test-results: unit-tests.json

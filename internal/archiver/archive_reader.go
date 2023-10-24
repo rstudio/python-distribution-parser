@@ -7,12 +7,13 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"strings"
 )
 
-// archiveReader is an interface to abstract the behavior of different archive types.
-type archiveReader interface {
+// ArchiveReader is an interface to abstract the behavior of different archive types.
+type ArchiveReader interface {
 	FileNames() ([]string, error)
 	ReadFile(name string) ([]byte, error)
 	Close() error
@@ -37,7 +38,12 @@ func (z *zipReader) ReadFile(name string) ([]byte, error) {
 			if err != nil {
 				return nil, err
 			}
-			defer rc.Close()
+			defer func(rc io.ReadCloser) {
+				err := rc.Close()
+				if err != nil {
+					log.Printf("error closing reader: %v", err)
+				}
+			}(rc)
 			return io.ReadAll(rc)
 		}
 	}
@@ -51,7 +57,10 @@ type tarReader struct {
 }
 
 func (t *tarReader) resetReader() error {
-	t.Close()
+	err := t.Close()
+	if err != nil {
+		return err
+	}
 
 	// Reopen the file
 	f, err := os.Open(t.filename)
@@ -62,7 +71,10 @@ func (t *tarReader) resetReader() error {
 	if strings.HasSuffix(t.filename, ".tar.gz") || strings.HasSuffix(t.filename, ".tgz") {
 		gzr, err := gzip.NewReader(f)
 		if err != nil {
-			f.Close()
+			cerr := f.Close()
+			if cerr != nil {
+				return cerr
+			}
 			return err
 		}
 		t.Reader = tar.NewReader(gzr) // Reset the tar reader with new gzip reader
@@ -72,7 +84,12 @@ func (t *tarReader) resetReader() error {
 }
 
 func (t *tarReader) FileNames() ([]string, error) {
-	defer t.resetReader()
+	defer func(t *tarReader) {
+		err := t.resetReader()
+		if err != nil {
+			log.Printf("error resetting reader: %v", err)
+		}
+	}(t)
 	var names []string
 	for {
 		hdr, err := t.Next()
@@ -106,7 +123,7 @@ func (t *tarReader) Close() error {
 	return t.closer.Close()
 }
 
-func NewArchiveReader(fqn string) (archiveReader, error) {
+func NewArchiveReader(fqn string) (ArchiveReader, error) {
 	_, err := os.Stat(fqn)
 	if errors.Is(err, os.ErrNotExist) {
 		return nil, fmt.Errorf("no such file: %s", fqn)
@@ -127,7 +144,10 @@ func NewArchiveReader(fqn string) (archiveReader, error) {
 	if strings.HasSuffix(fqn, ".tar.gz") || strings.HasSuffix(fqn, ".tgz") {
 		gzr, err := gzip.NewReader(f)
 		if err != nil {
-			f.Close()
+			err := f.Close()
+			if err != nil {
+				log.Printf("error closing file: %v", err)
+			}
 			return nil, err
 		}
 		r := tar.NewReader(gzr)
@@ -138,7 +158,10 @@ func NewArchiveReader(fqn string) (archiveReader, error) {
 		return &tarReader{fqn, r, f}, nil
 	}
 
-	f.Close()
+	err = f.Close()
+	if err != nil {
+		log.Printf("error closing file: %v", err)
+	}
 	return nil, fmt.Errorf("not a known archive format: %s", fqn)
 }
 

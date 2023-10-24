@@ -3,12 +3,11 @@ package parse
 import (
 	"errors"
 	"fmt"
+	"github.com/rstudio/python-distribution-parser/internal/packages"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
-
-	"github.com/rstudio/python-distribution-parser/packages"
 )
 
 func endsWith(str, suffix string) bool {
@@ -48,7 +47,7 @@ func findDistributions(dists []string) ([]string, error) {
 		if err != nil {
 			return nil, err
 		}
-		if files == nil || len(files) == 0 {
+		if len(files) == 0 {
 			return nil, fmt.Errorf("cannot find file (or expand pattern): %s", filename)
 		}
 
@@ -66,7 +65,10 @@ func makePackage(filename string, signatures map[string]string) (*packages.Packa
 
 	signedName := packageFile.SignedBaseFilename
 	if signature, exists := signatures[signedName]; exists {
-		packageFile.AddGPGSignature(signature, signedName)
+		err := packageFile.AddGPGSignature(signature, signedName)
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	_, err = packages.GetFileSize(packageFile.Filename)

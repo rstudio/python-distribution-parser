@@ -3,11 +3,11 @@ package distributions
 import (
 	"bytes"
 	"fmt"
+	"github.com/rstudio/python-distribution-parser/internal/archiver"
+	"log"
 	"path/filepath"
 	"sort"
 	"strings"
-
-	"github.com/rstudio/python-distribution-parser/archiver"
 )
 
 type SDist struct {
@@ -52,7 +52,12 @@ func (sd *SDist) read() ([]byte, error) {
 	if err != nil {
 		return nil, fmt.Errorf("error getting archive: %w", err)
 	}
-	defer archiveReader.Close() // Ensure the archive is closed after reading
+	defer func(archiveReader archiver.ArchiveReader) {
+		err := archiveReader.Close()
+		if err != nil {
+			log.Printf("error closing reader: %v", err)
+		}
+	}(archiveReader) // Ensure the archive is closed after reading
 
 	fileNames, err := archiveReader.FileNames()
 	if err != nil {
