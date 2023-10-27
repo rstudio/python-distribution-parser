@@ -1,0 +1,125 @@
+(parse_test.ParserData) {
+  Metadata: (map[string][]string) (len=28) {
+    (string) (len=7) ":action": ([]string) (len=1) {
+      (string) (len=11) "file_upload"
+    },
+    (string) (len=6) "author": ([]string) (len=1) {
+      (string) (len=112) "Holger Krekel, Bruno Oliveira, Ronny Pfannschmidt, Floris Bruynooghe, Brianna Laugher, Florian Bruhin and others"
+    },
+    (string) (len=12) "author_email": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=17) "blake2_256_digest": ([]string) (len=1) {
+      (string) (len=24) "blake2_256_digest exists"
+    },
+    (string) (len=11) "classifiers": ([]string) (len=16) {
+      (string) (len=32) "Development Status :: 6 - Mature",
+      (string) (len=31) "Intended Audience :: Developers",
+      (string) (len=38) "License :: OSI Approved :: MIT License",
+      (string) (len=36) "Operating System :: MacOS :: MacOS X",
+      (string) (len=40) "Operating System :: Microsoft :: Windows",
+      (string) (len=25) "Operating System :: POSIX",
+      (string) (len=35) "Programming Language :: Python :: 3",
+      (string) (len=43) "Programming Language :: Python :: 3 :: Only",
+      (string) (len=37) "Programming Language :: Python :: 3.8",
+      (string) (len=37) "Programming Language :: Python :: 3.9",
+      (string) (len=38) "Programming Language :: Python :: 3.10",
+      (string) (len=38) "Programming Language :: Python :: 3.11",
+      (string) (len=38) "Programming Language :: Python :: 3.12",
+      (string) (len=42) "Topic :: Software Development :: Libraries",
+      (string) (len=40) "Topic :: Software Development :: Testing",
+      (string) (len=18) "Topic :: Utilities"
+    },
+    (string) (len=7) "comment": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=11) "description": ([]string) (len=1) {
+      (string) (len=5628) ".. image:: https://github.com/pytest-dev/pytest/raw/main/doc/en/img/pytest_logo_curves.svg\n   :target: https://docs.pytest.org/en/stable/\n   :align: center\n   :height: 200\n   :alt: pytest\n\n\n------\n\n.. image:: https://img.shields.io/pypi/v/pytest.svg\n    :target: https://pypi.org/project/pytest/\n\n.. image:: https://img.shields.io/conda/vn/conda-forge/pytest.svg\n    :target: https://anaconda.org/conda-forge/pytest\n\n.. image:: https://img.shields.io/pypi/pyversions/pytest.svg\n    :target: https://pypi.org/project/pytest/\n\n.. image:: https://codecov.io/gh/pytest-dev/pytest/branch/main/graph/badge.svg\n    :target: https://codecov.io/gh/pytest-dev/pytest\n    :alt: Code coverage Status\n\n.. image:: https://github.com/pytest-dev/pytest/workflows/test/badge.svg\n    :target: https://github.com/pytest-dev/pytest/actions?query=workflow%3Atest\n\n.. image:: https://results.pre-commit.ci/badge/github/pytest-dev/pytest/main.svg\n   :target: https://results.pre-commit.ci/latest/github/pytest-dev/pytest/main\n   :alt: pre-commit.ci status\n\n.. image:: https://img.shields.io/badge/code%20style-black-000000.svg\n    :target: https://github.com/psf/black\n\n.. image:: https://www.codetriage.com/pytest-dev/pytest/badges/users.svg\n    :target: https://www.codetriage.com/pytest-dev/pytest\n\n.. image:: https://readthedocs.org/projects/pytest/badge/?version=latest\n    :target: https://pytest.readthedocs.io/en/latest/?badge=latest\n    :alt: Documentation Status\n\n.. image:: https://img.shields.io/badge/Discord-pytest--dev-blue\n    :target: https://discord.com/invite/pytest-dev\n    :alt: Discord\n\n.. image:: https://img.shields.io/badge/Libera%20chat-%23pytest-orange\n    :target: https://web.libera.chat/#pytest\n    :alt: Libera chat\n\n\nThe ``pytest`` framework makes it easy to write small tests, yet\nscales to support complex functional testing for applications and libraries.\n\nAn example of a simple test:\n\n.. code-block:: python\n\n    # content of test_sample.py\n    def inc(x):\n        return x + 1\n\n\n    def test_answer():\n        assert inc(3) == 5\n\n\nTo execute it::\n\n    $ pytest\n    ============================= test session starts =============================\n    collected 1 items\n\n    test_sample.py F\n\n    ================================== FAILURES ===================================\n    _________________________________ test_answer _________________________________\n\n        def test_answer():\n    >       assert inc(3) == 5\n    E       assert 4 == 5\n    E        +  where 4 = inc(3)\n\n    test_sample.py:5: AssertionError\n    ========================== 1 failed in 0.04 seconds ===========================\n\n\nDue to ``pytest``'s detailed assertion introspection, only plain ``assert`` statements are used. See `getting-started <https://docs.pytest.org/en/stable/getting-started.html#our-first-test-run>`_ for more examples.\n\n\nFeatures\n--------\n\n- Detailed info on failing `assert statements <https://docs.pytest.org/en/stable/how-to/assert.html>`_ (no need to remember ``self.assert*`` names)\n\n- `Auto-discovery\n  <https://docs.pytest.org/en/stable/explanation/goodpractices.html#python-test-discovery>`_\n  of test modules and functions\n\n- `Modular fixtures <https://docs.pytest.org/en/stable/explanation/fixtures.html>`_ for\n  managing small or parametrized long-lived test resources\n\n- Can run `unittest <https://docs.pytest.org/en/stable/how-to/unittest.html>`_ (or trial),\n  `nose <https://docs.pytest.org/en/stable/how-to/nose.html>`_ test suites out of the box\n\n- Python 3.8+ or PyPy3\n\n- Rich plugin architecture, with over 850+ `external plugins <https://docs.pytest.org/en/latest/reference/plugin_list.html>`_ and thriving community\n\n\nDocumentation\n-------------\n\nFor full documentation, including installation, tutorials and PDF documents, please see https://docs.pytest.org/en/stable/.\n\n\nBugs/Requests\n-------------\n\nPlease use the `GitHub issue tracker <https://github.com/pytest-dev/pytest/issues>`_ to submit bugs or request features.\n\n\nChangelog\n---------\n\nConsult the `Changelog <https://docs.pytest.org/en/stable/changelog.html>`__ page for fixes and enhancements of each version.\n\n\nSupport pytest\n--------------\n\n`Open Collective`_ is an online funding platform for open and transparent communities.\nIt provides tools to raise money and share your finances in full transparency.\n\nIt is the platform of choice for individuals and companies that want to make one-time or\nmonthly donations directly to the project.\n\nSee more details in the `pytest collective`_.\n\n.. _Open Collective: https://opencollective.com\n.. _pytest collective: https://opencollective.com/pytest\n\n\npytest for enterprise\n---------------------\n\nAvailable as part of the Tidelift Subscription.\n\nThe maintainers of pytest and thousands of other packages are working with Tidelift to deliver commercial support and\nmaintenance for the open source dependencies you use to build your applications.\nSave time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use.\n\n`Learn more. <https://tidelift.com/subscription/pkg/pypi-pytest?utm_source=pypi-pytest&utm_medium=referral&utm_campaign=enterprise&utm_term=repo>`_\n\nSecurity\n^^^^^^^^\n\npytest has never been associated with a security vulnerability, but in any case, to report a\nsecurity vulnerability please use the `Tidelift security contact <https://tidelift.com/security>`_.\nTidelift will coordinate the fix and disclosure.\n\n\nLicense\n-------\n\nCopyright Holger Krekel and others, 2004.\n\nDistributed under the terms of the `MIT`_ license, pytest is free and open source software.\n\n.. _`MIT`: https://github.com/pytest-dev/pytest/blob/main/LICENSE\n"
+    },
+    (string) (len=24) "description_content_type": ([]string) (len=1) {
+      (string) (len=10) "text/x-rst"
+    },
+    (string) (len=12) "download_url": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=8) "filetype": ([]string) (len=1) {
+      (string) (len=5) "sdist"
+    },
+    (string) (len=9) "home_page": ([]string) (len=1) {
+      (string) (len=34) "https://docs.pytest.org/en/latest/"
+    },
+    (string) (len=8) "keywords": ([]string) (len=1) {
+      (string) (len=13) "test,unittest"
+    },
+    (string) (len=7) "license": ([]string) (len=1) {
+      (string) (len=3) "MIT"
+    },
+    (string) (len=10) "maintainer": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=16) "maintainer_email": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=10) "md5_digest": ([]string) (len=1) {
+      (string) (len=17) "md5_digest exists"
+    },
+    (string) (len=16) "metadata_version": ([]string) (len=1) {
+      (string) (len=3) "2.1"
+    },
+    (string) (len=4) "name": ([]string) (len=1) {
+      (string) (len=6) "pytest"
+    },
+    (string) (len=8) "platform": ([]string) (len=5) {
+      (string) (len=4) "unix",
+      (string) (len=5) "linux",
+      (string) (len=3) "osx",
+      (string) (len=6) "cygwin",
+      (string) (len=5) "win32"
+    },
+    (string) (len=12) "project_urls": ([]string) (len=4) {
+      (string) (len=59) "Changelog, https://docs.pytest.org/en/stable/changelog.html",
+      (string) (len=41) "Twitter, https://twitter.com/pytestdotorg",
+      (string) (len=44) "Source, https://github.com/pytest-dev/pytest",
+      (string) (len=52) "Tracker, https://github.com/pytest-dev/pytest/issues"
+    },
+    (string) (len=16) "protocol_version": ([]string) (len=1) {
+      (string) (len=1) "1"
+    },
+    (string) (len=15) "provides_extras": ([]string) (len=1) {
+      (string) (len=7) "testing"
+    },
+    (string) (len=9) "pyversion": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=13) "requires_dist": ([]string) (len=15) {
+      (string) (len=9) "iniconfig",
+      (string) (len=9) "packaging",
+      (string) (len=18) "pluggy<2.0,>=1.3.0",
+      (string) (len=33) "colorama; sys_platform == \"win32\"",
+      (string) (len=49) "exceptiongroup>=1.0.0rc8; python_version < \"3.11\"",
+      (string) (len=37) "tomli>=1.0.0; python_version < \"3.11\"",
+      (string) (len=31) "argcomplete; extra == \"testing\"",
+      (string) (len=33) "attrs>=19.2.0; extra == \"testing\"",
+      (string) (len=36) "hypothesis>=3.56; extra == \"testing\"",
+      (string) (len=24) "mock; extra == \"testing\"",
+      (string) (len=24) "nose; extra == \"testing\"",
+      (string) (len=35) "pygments>=2.7.2; extra == \"testing\"",
+      (string) (len=28) "requests; extra == \"testing\"",
+      (string) (len=30) "setuptools; extra == \"testing\"",
+      (string) (len=29) "xmlschema; extra == \"testing\""
+    },
+    (string) (len=15) "requires_python": ([]string) (len=1) {
+      (string) (len=5) ">=3.8"
+    },
+    (string) (len=13) "sha256_digest": ([]string) (len=1) {
+      (string) (len=20) "sha256_digest exists"
+    },
+    (string) (len=7) "summary": ([]string) (len=1) {
+      (string) (len=43) "pytest: simple powerful testing with Python"
+    },
+    (string) (len=7) "version": ([]string) (len=1) {
+      (string) (len=23) "8.0.0.dev305+g8fb7e8b31"
+    }
+  },
+  GpgSignature: ([]uint8) <nil>
+}

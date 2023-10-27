@@ -126,3 +126,9 @@ golangci-lint run --fix ./...
 ```bash
 go test ./...
 ```
+
+To update snapshots with [cupaloy](https://github.com/bradleyjkemp/cupaloy):
+
+```bash
+UPDATE_SNAPSHOTS=true go test ./...
+```
