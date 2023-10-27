@@ -3,11 +3,13 @@ package parse
 import (
 	"errors"
 	"fmt"
-	"github.com/rstudio/python-distribution-parser/internal/packages"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"github.com/rstudio/python-distribution-parser/internal/packages"
+	"github.com/rstudio/python-distribution-parser/types"
 )
 
 func endsWith(str, suffix string) bool {
@@ -57,10 +59,10 @@ func findDistributions(dists []string) ([]string, error) {
 	return groupWheelFilesFirst(packages), nil
 }
 
-func makePackage(filename string, signatures map[string]string) (*packages.PackageFile, error) {
+func makePackage(filename string, signatures map[string]string) (*types.PackageFile, error) {
 	packageFile, err := packages.NewPackageFile(filename)
 	if err != nil {
-		return nil, fmt.Errorf("unable to create packageFile from %s: %v\n", filename, err)
+		return nil, fmt.Errorf("unable to parse %s, path may not point to a valid Python package: %v\n", filename, err)
 	}
 
 	signedName := packageFile.SignedBaseFilename
@@ -78,7 +80,7 @@ func makePackage(filename string, signatures map[string]string) (*packages.Packa
 	return packageFile, nil
 }
 
-func parse(dists []string) ([]*packages.PackageFile, error) {
+func parse(dists []string) ([]*types.PackageFile, error) {
 	dists, err := findDistributions(dists)
 	if err != nil {
 		return nil, fmt.Errorf("error finding distributions: %v\n", err)
@@ -98,7 +100,7 @@ func parse(dists []string) ([]*packages.PackageFile, error) {
 		}
 	}
 
-	var packages []*packages.PackageFile
+	var packages []*types.PackageFile
 	for _, filename := range distributions {
 		p, err := makePackage(filename, signatures)
 		if err != nil {
@@ -110,30 +112,33 @@ func parse(dists []string) ([]*packages.PackageFile, error) {
 	return packages, nil
 }
 
-func Parse(path string) ([]*packages.PackageFile, error) {
+func Parse(paths ...string) ([]*types.PackageFile, error) {
 	var files []string
-	info, err := os.Stat(path)
-	if err != nil {
-		if os.IsNotExist(err) {
-			return nil, fmt.Errorf("%s does not exist: %v\n", path, err)
-		}
-		return nil, err
-	}
 
-	if info.IsDir() {
-		dirFiles, err := os.ReadDir(path)
+	for _, path := range paths {
+		info, err := os.Stat(path)
 		if err != nil {
+			if os.IsNotExist(err) {
+				return nil, fmt.Errorf("%s does not exist: %v\n", path, err)
+			}
 			return nil, err
 		}
-		for _, entry := range dirFiles {
-			// Don't recursively go in directories, only go one level deep.
-			if !entry.IsDir() {
-				fullPath := filepath.Join(path, entry.Name())
-				files = append(files, fullPath)
+
+		if info.IsDir() {
+			dirFiles, err := os.ReadDir(path)
+			if err != nil {
+				return nil, err
 			}
+			for _, entry := range dirFiles {
+				// Don't recursively go in directories, only go one level deep.
+				if !entry.IsDir() {
+					fullPath := filepath.Join(path, entry.Name())
+					files = append(files, fullPath)
+				}
+			}
+		} else {
+			files = append(files, path)
 		}
-	} else {
-		files = append(files, path)
 	}
 
 	if len(files) == 0 {

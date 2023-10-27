@@ -63,7 +63,7 @@ func NewDistributionMetadata(filename string) (Distribution, string, string, err
 		// "bdist_egg":     BDist,
 	}
 	if err != nil {
-		return nil, "", "", fmt.Errorf("invalid distribution file: %s, err: %v", filepath.Base(filename), err)
+		return nil, "", "", fmt.Errorf("invalid distribution file: %s: %v", filepath.Base(filename), err)
 	}
 
 	// If this encounters a metadata version it doesn't support, it may give us

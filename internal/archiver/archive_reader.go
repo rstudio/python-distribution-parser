@@ -56,43 +56,32 @@ type tarReader struct {
 	closer io.Closer
 }
 
-func (t *tarReader) resetReader() error {
-	err := t.Close()
-	if err != nil {
-		return err
-	}
-
-	// Reopen the file
+func (t *tarReader) FileNames() ([]string, error) {
 	f, err := os.Open(t.filename)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
-	if strings.HasSuffix(t.filename, ".tar.gz") || strings.HasSuffix(t.filename, ".tgz") {
-		gzr, err := gzip.NewReader(f)
+	defer func(f *os.File) {
+		err := f.Close()
 		if err != nil {
-			cerr := f.Close()
-			if cerr != nil {
-				return cerr
-			}
-			return err
+			log.Printf("error closing file: %v", err)
 		}
-		t.Reader = tar.NewReader(gzr) // Reset the tar reader with new gzip reader
+	}(f)
+
+	gzr, err := gzip.NewReader(f)
+	if err != nil {
+		cerr := f.Close()
+		if cerr != nil {
+			return nil, cerr
+		}
+		return nil, err
 	}
+	tarReader := tar.NewReader(gzr)
 
-	return nil
-}
-
-func (t *tarReader) FileNames() ([]string, error) {
-	defer func(t *tarReader) {
-		err := t.resetReader()
-		if err != nil {
-			log.Printf("error resetting reader: %v", err)
-		}
-	}(t)
 	var names []string
 	for {
-		hdr, err := t.Next()
+		hdr, err := tarReader.Next()
 		if err == io.EOF {
 			break
 		}

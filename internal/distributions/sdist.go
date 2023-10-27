@@ -3,11 +3,12 @@ package distributions
 import (
 	"bytes"
 	"fmt"
-	"github.com/rstudio/python-distribution-parser/internal/archiver"
 	"log"
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"github.com/rstudio/python-distribution-parser/internal/archiver"
 )
 
 type SDist struct {
