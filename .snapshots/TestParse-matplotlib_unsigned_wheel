@@ -1,0 +1,117 @@
+(parse_test.ParserData) {
+  Metadata: (map[string][]string) (len=27) {
+    (string) (len=7) ":action": ([]string) (len=1) {
+      (string) (len=11) "file_upload"
+    },
+    (string) (len=6) "author": ([]string) (len=1) {
+      (string) (len=34) "John D. Hunter, Michael Droettboom"
+    },
+    (string) (len=12) "author_email": ([]string) (len=1) {
+      (string) (len=37) "Unknown <matplotlib-users@python.org>"
+    },
+    (string) (len=17) "blake2_256_digest": ([]string) (len=1) {
+      (string) (len=24) "blake2_256_digest exists"
+    },
+    (string) (len=11) "classifiers": ([]string) (len=12) {
+      (string) (len=43) "Development Status :: 5 - Production/Stable",
+      (string) (len=23) "Framework :: Matplotlib",
+      (string) (len=37) "Intended Audience :: Science/Research",
+      (string) (len=30) "Intended Audience :: Education",
+      (string) (len=61) "License :: OSI Approved :: Python Software Foundation License",
+      (string) (len=30) "Programming Language :: Python",
+      (string) (len=35) "Programming Language :: Python :: 3",
+      (string) (len=37) "Programming Language :: Python :: 3.9",
+      (string) (len=38) "Programming Language :: Python :: 3.10",
+      (string) (len=38) "Programming Language :: Python :: 3.11",
+      (string) (len=38) "Programming Language :: Python :: 3.12",
+      (string) (len=48) "Topic :: Scientific/Engineering :: Visualization"
+    },
+    (string) (len=7) "comment": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=11) "description": ([]string) (len=1) {
+      (string) (len=3641) "[![PyPi](https://img.shields.io/pypi/v/matplotlib)](https://pypi.org/project/matplotlib/)\n[![Conda](https://img.shields.io/conda/vn/conda-forge/matplotlib)](https://anaconda.org/conda-forge/matplotlib)\n[![Downloads](https://img.shields.io/pypi/dm/matplotlib)](https://pypi.org/project/matplotlib)\n[![NUMFocus](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org)\n\n[![Discourse help forum](https://img.shields.io/badge/help_forum-discourse-blue.svg)](https://discourse.matplotlib.org)\n[![Gitter](https://badges.gitter.im/matplotlib/matplotlib.svg)](https://gitter.im/matplotlib/matplotlib)\n[![GitHub issues](https://img.shields.io/badge/issue_tracking-github-blue.svg)](https://github.com/matplotlib/matplotlib/issues)\n[![Contributing](https://img.shields.io/badge/PR-Welcome-%23FF8300.svg?)](https://matplotlib.org/stable/devel/index.html)\n\n[![GitHub actions status](https://github.com/matplotlib/matplotlib/workflows/Tests/badge.svg)](https://github.com/matplotlib/matplotlib/actions?query=workflow%3ATests)\n[![Azure pipelines status](https://dev.azure.com/matplotlib/matplotlib/_apis/build/status/matplotlib.matplotlib?branchName=main)](https://dev.azure.com/matplotlib/matplotlib/_build/latest?definitionId=1&branchName=main)\n[![AppVeyor status](https://ci.appveyor.com/api/projects/status/github/matplotlib/matplotlib?branch=main&svg=true)](https://ci.appveyor.com/project/matplotlib/matplotlib)\n[![Codecov status](https://codecov.io/github/matplotlib/matplotlib/badge.svg?branch=main&service=github)](https://app.codecov.io/gh/matplotlib/matplotlib)\n\n![Matplotlib logotype](https://matplotlib.org/_static/logo2.svg)\n\nMatplotlib is a comprehensive library for creating static, animated, and\ninteractive visualizations in Python.\n\nCheck out our [home page](https://matplotlib.org/) for more information.\n\n![image](https://matplotlib.org/_static/readme_preview.png)\n\nMatplotlib produces publication-quality figures in a variety of hardcopy\nformats and interactive environments across platforms. Matplotlib can be\nused in Python scripts, Python/IPython shells, web application servers,\nand various graphical user interface toolkits.\n\n## Install\n\nSee the [install\ndocumentation](https://matplotlib.org/stable/users/installing/index.html),\nwhich is generated from `/doc/users/installing/index.rst`\n\n## Contribute\n\nYou've discovered a bug or something else you want to change — excellent!\n\nYou've worked out a way to fix it — even better!\n\nYou want to tell us about it — best of all!\n\nStart at the [contributing\nguide](https://matplotlib.org/devdocs/devel/contributing.html)!\n\n## Contact\n\n[Discourse](https://discourse.matplotlib.org/) is the discussion forum\nfor general questions and discussions and our recommended starting\npoint.\n\nOur active mailing lists (which are mirrored on Discourse) are:\n\n-   [Users](https://mail.python.org/mailman/listinfo/matplotlib-users)\n    mailing list: <matplotlib-users@python.org>\n-   [Announcement](https://mail.python.org/mailman/listinfo/matplotlib-announce)\n    mailing list: <matplotlib-announce@python.org>\n-   [Development](https://mail.python.org/mailman/listinfo/matplotlib-devel)\n    mailing list: <matplotlib-devel@python.org>\n\n[Gitter](https://gitter.im/matplotlib/matplotlib) is for coordinating\ndevelopment and asking questions directly related to contributing to\nmatplotlib.\n\n## Citing Matplotlib\n\nIf Matplotlib contributes to a project that leads to publication, please\nacknowledge this by citing Matplotlib.\n\n[A ready-made citation\nentry](https://matplotlib.org/stable/users/project/citing.html) is\navailable.\n"
+    },
+    (string) (len=24) "description_content_type": ([]string) (len=1) {
+      (string) (len=13) "text/markdown"
+    },
+    (string) (len=12) "download_url": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=8) "filetype": ([]string) (len=1) {
+      (string) (len=11) "bdist_wheel"
+    },
+    (string) (len=9) "home_page": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=8) "keywords": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=7) "license": ([]string) (len=1) {
+      (string) (len=4828) "License agreement for matplotlib versions 1.3.0 and later =========================================================  1. This LICENSE AGREEMENT is between the Matplotlib Development Team (\"MDT\"), and the Individual or Organization (\"Licensee\") accessing and otherwise using matplotlib software in source or binary form and its associated documentation.  2. Subject to the terms and conditions of this License Agreement, MDT hereby grants Licensee a nonexclusive, royalty-free, world-wide license to reproduce, analyze, test, perform and/or display publicly, prepare derivative works, distribute, and otherwise use matplotlib alone or in any derivative version, provided, however, that MDT's License Agreement and MDT's notice of copyright, i.e., \"Copyright (c) 2012- Matplotlib Development Team; All Rights Reserved\" are retained in matplotlib  alone or in any derivative version prepared by Licensee.  3. In the event Licensee prepares a derivative work that is based on or incorporates matplotlib or any part thereof, and wants to make the derivative work available to others as provided herein, then Licensee hereby agrees to include in any such work a brief summary of the changes made to matplotlib .  4. MDT is making matplotlib available to Licensee on an \"AS IS\" basis.  MDT MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, MDT MAKES NO AND DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF MATPLOTLIB WILL NOT INFRINGE ANY THIRD PARTY RIGHTS.  5. MDT SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF MATPLOTLIB FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS AS A RESULT OF MODIFYING, DISTRIBUTING, OR OTHERWISE USING MATPLOTLIB , OR ANY DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.  6. This License Agreement will automatically terminate upon a material breach of its terms and conditions.  7. Nothing in this License Agreement shall be deemed to create any relationship of agency, partnership, or joint venture between MDT and Licensee.  This License Agreement does not grant permission to use MDT trademarks or trade name in a trademark sense to endorse or promote products or services of Licensee, or any third party.  8. By copying, installing or otherwise using matplotlib , Licensee agrees to be bound by the terms and conditions of this License Agreement.  License agreement for matplotlib versions prior to 1.3.0 ========================================================  1. This LICENSE AGREEMENT is between John D. Hunter (\"JDH\"), and the Individual or Organization (\"Licensee\") accessing and otherwise using matplotlib software in source or binary form and its associated documentation.  2. Subject to the terms and conditions of this License Agreement, JDH hereby grants Licensee a nonexclusive, royalty-free, world-wide license to reproduce, analyze, test, perform and/or display publicly, prepare derivative works, distribute, and otherwise use matplotlib alone or in any derivative version, provided, however, that JDH's License Agreement and JDH's notice of copyright, i.e., \"Copyright (c) 2002-2011 John D. Hunter; All Rights Reserved\" are retained in matplotlib  alone or in any derivative version prepared by Licensee.  3. In the event Licensee prepares a derivative work that is based on or incorporates matplotlib  or any part thereof, and wants to make the derivative work available to others as provided herein, then Licensee hereby agrees to include in any such work a brief summary of the changes made to matplotlib.  4. JDH is making matplotlib  available to Licensee on an \"AS IS\" basis.  JDH MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, JDH MAKES NO AND DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF MATPLOTLIB WILL NOT INFRINGE ANY THIRD PARTY RIGHTS.  5. JDH SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF MATPLOTLIB FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS AS A RESULT OF MODIFYING, DISTRIBUTING, OR OTHERWISE USING MATPLOTLIB , OR ANY DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.  6. This License Agreement will automatically terminate upon a material breach of its terms and conditions.  7. Nothing in this License Agreement shall be deemed to create any relationship of agency, partnership, or joint venture between JDH and Licensee.  This License Agreement does not grant permission to use JDH trademarks or trade name in a trademark sense to endorse or promote products or services of Licensee, or any third party.  8. By copying, installing or otherwise using matplotlib, Licensee agrees to be bound by the terms and conditions of this License Agreement."
+    },
+    (string) (len=10) "maintainer": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=16) "maintainer_email": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=10) "md5_digest": ([]string) (len=1) {
+      (string) (len=17) "md5_digest exists"
+    },
+    (string) (len=16) "metadata_version": ([]string) (len=1) {
+      (string) (len=3) "2.1"
+    },
+    (string) (len=4) "name": ([]string) (len=1) {
+      (string) (len=10) "matplotlib"
+    },
+    (string) (len=12) "project_urls": ([]string) (len=7) {
+      (string) (len=32) "Homepage, https://matplotlib.org",
+      (string) (len=67) "Download, https://matplotlib.org/stable/users/installing/index.html",
+      (string) (len=37) "Documentation, https://matplotlib.org",
+      (string) (len=53) "Source code, https://github.com/matplotlib/matplotlib",
+      (string) (len=60) "Bug tracker, https://github.com/matplotlib/matplotlib/issues",
+      (string) (len=40) "Forum, https://discourse.matplotlib.org/",
+      (string) (len=49) "Donate, https://numfocus.org/donate-to-matplotlib"
+    },
+    (string) (len=16) "protocol_version": ([]string) (len=1) {
+      (string) (len=1) "1"
+    },
+    (string) (len=15) "provides_extras": ([]string) (len=1) {
+      (string) (len=3) "dev"
+    },
+    (string) (len=9) "pyversion": ([]string) (len=1) {
+      (string) (len=5) "cp312"
+    },
+    (string) (len=13) "requires_dist": ([]string) (len=15) {
+      (string) (len=16) "contourpy>=1.0.1",
+      (string) (len=12) "cycler>=0.10",
+      (string) (len=17) "fonttools>=4.22.0",
+      (string) (len=17) "kiwisolver>=1.3.1",
+      (string) (len=11) "numpy>=1.21",
+      (string) (len=15) "packaging>=20.0",
+      (string) (len=9) "pillow>=8",
+      (string) (len=16) "pyparsing>=2.3.1",
+      (string) (len=20) "python-dateutil>=2.7",
+      (string) (len=51) "importlib-resources>=3.2.0; python_version < \"3.10\"",
+      (string) (len=36) "meson-python>=0.13.1; extra == \"dev\"",
+      (string) (len=27) "numpy>=1.25; extra == \"dev\"",
+      (string) (len=29) "pybind11>=2.6; extra == \"dev\"",
+      (string) (len=33) "setuptools_scm>=7; extra == \"dev\"",
+      (string) (len=30) "setuptools>=64; extra == \"dev\""
+    },
+    (string) (len=15) "requires_python": ([]string) (len=1) {
+      (string) (len=5) ">=3.9"
+    },
+    (string) (len=13) "sha256_digest": ([]string) (len=1) {
+      (string) (len=20) "sha256_digest exists"
+    },
+    (string) (len=7) "summary": ([]string) (len=1) {
+      (string) (len=23) "Python plotting package"
+    },
+    (string) (len=7) "version": ([]string) (len=1) {
+      (string) (len=10) "3.9.0.dev0"
+    }
+  },
+  GpgSignature: ([]uint8) <nil>
+}

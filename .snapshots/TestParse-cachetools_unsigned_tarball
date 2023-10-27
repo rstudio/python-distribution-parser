@@ -1,0 +1,90 @@
+(parse_test.ParserData) {
+  Metadata: (map[string][]string) (len=24) {
+    (string) (len=7) ":action": ([]string) (len=1) {
+      (string) (len=11) "file_upload"
+    },
+    (string) (len=6) "author": ([]string) (len=1) {
+      (string) (len=13) "Thomas Kemmer"
+    },
+    (string) (len=12) "author_email": ([]string) (len=1) {
+      (string) (len=20) "tkemmer@computer.org"
+    },
+    (string) (len=17) "blake2_256_digest": ([]string) (len=1) {
+      (string) (len=24) "blake2_256_digest exists"
+    },
+    (string) (len=11) "classifiers": ([]string) (len=14) {
+      (string) (len=43) "Development Status :: 5 - Production/Stable",
+      (string) (len=32) "Environment :: Other Environment",
+      (string) (len=31) "Intended Audience :: Developers",
+      (string) (len=38) "License :: OSI Approved :: MIT License",
+      (string) (len=34) "Operating System :: OS Independent",
+      (string) (len=30) "Programming Language :: Python",
+      (string) (len=35) "Programming Language :: Python :: 3",
+      (string) (len=37) "Programming Language :: Python :: 3.7",
+      (string) (len=37) "Programming Language :: Python :: 3.8",
+      (string) (len=37) "Programming Language :: Python :: 3.9",
+      (string) (len=38) "Programming Language :: Python :: 3.10",
+      (string) (len=38) "Programming Language :: Python :: 3.11",
+      (string) (len=38) "Programming Language :: Python :: 3.12",
+      (string) (len=60) "Topic :: Software Development :: Libraries :: Python Modules"
+    },
+    (string) (len=7) "comment": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=11) "description": ([]string) (len=1) {
+      (string) (len=4344) "cachetools\n========================================================================\n\n.. image:: https://img.shields.io/pypi/v/cachetools\n   :target: https://pypi.org/project/cachetools/\n   :alt: Latest PyPI version\n\n.. image:: https://img.shields.io/github/actions/workflow/status/tkem/cachetools/ci.yml\n   :target: https://github.com/tkem/cachetools/actions/workflows/ci.yml\n   :alt: CI build status\n\n.. image:: https://img.shields.io/readthedocs/cachetools\n   :target: https://cachetools.readthedocs.io/\n   :alt: Documentation build status\n\n.. image:: https://img.shields.io/codecov/c/github/tkem/cachetools/master.svg\n   :target: https://codecov.io/gh/tkem/cachetools\n   :alt: Test coverage\n\n.. image:: https://img.shields.io/librariesio/sourcerank/pypi/cachetools\n   :target: https://libraries.io/pypi/cachetools\n   :alt: Libraries.io SourceRank\n\n.. image:: https://img.shields.io/github/license/tkem/cachetools\n   :target: https://raw.github.com/tkem/cachetools/master/LICENSE\n   :alt: License\n\n.. image:: https://img.shields.io/badge/code%20style-black-000000.svg\n   :target: https://github.com/psf/black\n   :alt: Code style: black\n\n\nThis module provides various memoizing collections and decorators,\nincluding variants of the Python Standard Library's `@lru_cache`_\nfunction decorator.\n\n.. code-block:: python\n\n   from cachetools import cached, LRUCache, TTLCache\n\n   # speed up calculating Fibonacci numbers with dynamic programming\n   @cached(cache={})\n   def fib(n):\n       return n if n < 2 else fib(n - 1) + fib(n - 2)\n\n   # cache least recently used Python Enhancement Proposals\n   @cached(cache=LRUCache(maxsize=32))\n   def get_pep(num):\n       url = 'http://www.python.org/dev/peps/pep-%04d/' % num\n       with urllib.request.urlopen(url) as s:\n           return s.read()\n\n   # cache weather data for no longer than ten minutes\n   @cached(cache=TTLCache(maxsize=1024, ttl=600))\n   def get_weather(place):\n       return owm.weather_at_place(place).get_weather()\n\nFor the purpose of this module, a *cache* is a mutable_ mapping_ of a\nfixed maximum size.  When the cache is full, i.e. by adding another\nitem the cache would exceed its maximum size, the cache must choose\nwhich item(s) to discard based on a suitable `cache algorithm`_.\n\nThis module provides multiple cache classes based on different cache\nalgorithms, as well as decorators for easily memoizing function and\nmethod calls.\n\n\nInstallation\n------------------------------------------------------------------------\n\ncachetools is available from PyPI_ and can be installed by running::\n\n  pip install cachetools\n\nTyping stubs for this package are provided by typeshed_ and can be\ninstalled by running::\n\n  pip install types-cachetools\n\n\nProject Resources\n------------------------------------------------------------------------\n\n- `Documentation`_\n- `Issue tracker`_\n- `Source code`_\n- `Change log`_\n\n\nRelated Projects\n------------------------------------------------------------------------\n\n- asyncache_: Helpers to use cachetools with async functions\n- cacheing_: Pure Python Cacheing Library\n- CacheToolsUtils_: Cachetools Utilities\n- kids.cache_: Kids caching library\n- shelved-cache_: Persistent cache for Python cachetools\n\n\nLicense\n------------------------------------------------------------------------\n\nCopyright (c) 2014-2023 Thomas Kemmer.\n\nLicensed under the `MIT License`_.\n\n\n.. _@lru_cache: https://docs.python.org/3/library/functools.html#functools.lru_cache\n.. _mutable: https://docs.python.org/dev/glossary.html#term-mutable\n.. _mapping: https://docs.python.org/dev/glossary.html#term-mapping\n.. _cache algorithm: https://en.wikipedia.org/wiki/Cache_algorithms\n\n.. _PyPI: https://pypi.org/project/cachetools/\n.. _typeshed: https://github.com/python/typeshed/\n.. _Documentation: https://cachetools.readthedocs.io/\n.. _Issue tracker: https://github.com/tkem/cachetools/issues/\n.. _Source code: https://github.com/tkem/cachetools/\n.. _Change log: https://github.com/tkem/cachetools/blob/master/CHANGELOG.rst\n.. _MIT License: https://raw.github.com/tkem/cachetools/master/LICENSE\n\n.. _asyncache: https://pypi.org/project/asyncache/\n.. _cacheing: https://github.com/breid48/cacheing\n.. _CacheToolsUtils: https://pypi.org/project/CacheToolsUtils/\n.. _kids.cache: https://pypi.org/project/kids.cache/\n.. _shelved-cache: https://pypi.org/project/shelved-cache/\n"
+    },
+    (string) (len=24) "description_content_type": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=12) "download_url": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=8) "filetype": ([]string) (len=1) {
+      (string) (len=5) "sdist"
+    },
+    (string) (len=9) "home_page": ([]string) (len=1) {
+      (string) (len=35) "https://github.com/tkem/cachetools/"
+    },
+    (string) (len=8) "keywords": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=7) "license": ([]string) (len=1) {
+      (string) (len=3) "MIT"
+    },
+    (string) (len=10) "maintainer": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=16) "maintainer_email": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=10) "md5_digest": ([]string) (len=1) {
+      (string) (len=17) "md5_digest exists"
+    },
+    (string) (len=16) "metadata_version": ([]string) (len=1) {
+      (string) (len=3) "2.1"
+    },
+    (string) (len=4) "name": ([]string) (len=1) {
+      (string) (len=10) "cachetools"
+    },
+    (string) (len=16) "protocol_version": ([]string) (len=1) {
+      (string) (len=1) "1"
+    },
+    (string) (len=9) "pyversion": ([]string) (len=1) {
+      (string) ""
+    },
+    (string) (len=15) "requires_python": ([]string) (len=1) {
+      (string) (len=5) ">=3.7"
+    },
+    (string) (len=13) "sha256_digest": ([]string) (len=1) {
+      (string) (len=20) "sha256_digest exists"
+    },
+    (string) (len=7) "summary": ([]string) (len=1) {
+      (string) (len=47) "Extensible memoizing collections and decorators"
+    },
+    (string) (len=7) "version": ([]string) (len=1) {
+      (string) (len=5) "5.3.2"
+    }
+  },
+  GpgSignature: ([]uint8) <nil>
+}

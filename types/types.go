@@ -55,6 +55,7 @@ func (pf *PackageFile) MetadataMap() map[string][]string {
 		"signed_base_filename",
 		"signed_filename",
 		"metadata",
+		"gpg_signature",
 	}
 
 	for _, key := range ignoredKeys {
