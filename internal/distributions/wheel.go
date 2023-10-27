@@ -3,12 +3,12 @@ package distributions
 import (
 	"bytes"
 	"fmt"
+	"github.com/rstudio/python-distribution-parser/internal/archiver"
+	"log"
 	"path/filepath"
 	"regexp"
 	"sort"
 	"strings"
-
-	"github.com/rstudio/python-distribution-parser/archiver"
 )
 
 var wheelFileRe = regexp.MustCompile(`^(?P<namever>(?P<name>.+?)(-(?P<ver>\d.+?))?)(?:(-(?P<build>\d.*?))?-(?P<pyver>.+?)-(?P<abi>.+?)-(?P<plat>.+?)\.whl|\.dist-info)$`)
@@ -57,7 +57,12 @@ func (whl *Wheel) read() ([]byte, error) {
 	if err != nil {
 		return nil, fmt.Errorf("error getting archive: %w", err)
 	}
-	defer archiveReader.Close() // Ensure the archive is closed after reading
+	defer func(archiveReader archiver.ArchiveReader) {
+		err := archiveReader.Close()
+		if err != nil {
+			log.Printf("error closing reader: %v", err)
+		}
+	}(archiveReader) // Ensure the archive is closed after reading
 
 	fileNames, err := archiveReader.FileNames()
 	if err != nil {

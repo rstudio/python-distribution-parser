@@ -114,3 +114,15 @@ And here is example output:
   }
 ]
 ```
+
+## Linting
+
+```bash
+golangci-lint run --fix ./...
+```
+
+## Testing
+
+```bash
+go test ./...
+```

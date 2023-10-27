@@ -5,6 +5,7 @@ import (
 	"io"
 	"net/mail"
 	"reflect"
+	"regexp"
 	"strings"
 	"unicode"
 
@@ -51,7 +52,7 @@ func mustDecode(value interface{}) (string, error) {
 }
 
 func collapseLeadingWS(header, txt string) string {
-	if strings.ToLower(header) == "description" { // preserve newlines
+	if strings.ToLower(header) == "description" || strings.ToLower(header) == "license" { // preserve newlines
 		lines := strings.Split(strings.TrimSpace(txt), "\n")
 		for i, line := range lines {
 			if strings.HasPrefix(line, "        ") { // 8 spaces
@@ -77,8 +78,8 @@ var HeaderAttrs1_0 = []HeaderAttr{ // PEP 241
 	{"Metadata-Version", "metadata_version", false},
 	{"Name", "name", false},
 	{"Version", "version", false},
-	{"Platform", "platforms", true},
-	{"Supported-Platform", "supported_platforms", true},
+	{"Platform", "platform", true},
+	{"Supported-Platform", "supported_platform", true},
 	{"Summary", "summary", false},
 	{"Description", "description", false},
 	{"Keywords", "keywords", false},
@@ -90,7 +91,7 @@ var HeaderAttrs1_0 = []HeaderAttr{ // PEP 241
 
 var HeaderAttrs1_1 = append(HeaderAttrs1_0, []HeaderAttr{ // PEP 314
 	{"Classifier", "classifiers", true},
-	{"Download-URL", "download_url", false},
+	{"Download-Url", "download_url", false},
 	{"Requires", "requires", true},
 	{"Provides", "provides", true},
 	{"Obsoletes", "obsoletes", true},
@@ -104,7 +105,7 @@ var HeaderAttrs1_2 = append(HeaderAttrs1_1, []HeaderAttr{ // PEP 345
 	{"Requires-Dist", "requires_dist", true},
 	{"Provides-Dist", "provides_dist", true},
 	{"Obsoletes-Dist", "obsoletes_dist", true},
-	{"Project-URL", "project_urls", true},
+	{"Project-Url", "project_urls", true},
 }...)
 
 var HeaderAttrs2_0 = HeaderAttrs1_2 //XXX PEP 426?
@@ -129,12 +130,12 @@ type Distribution interface {
 	ExtractMetadata() error
 	Parse(data []byte) error
 
-	// Helper method to get values
+	// GetName is a helper method to get values
 	GetName() string
 	GetVersion() string
 	GetPythonVersion() string
 
-	// This is used to return a map of all the metadata,
+	// MetadataMap is used to return a map of all the metadata,
 	// similar to how twine passes the metadata in a multipart
 	// form request.
 	MetadataMap() map[string][]string
@@ -145,8 +146,8 @@ type BaseDistribution struct {
 	// version 1.0
 	Name               string   `json:"name"`
 	Version            string   `json:"version"`
-	Platforms          []string `json:"platforms"`
-	SupportedPlatforms []string `json:"supported_platforms"`
+	Platforms          []string `json:"platform"`
+	SupportedPlatforms []string `json:"supported_platform"`
 	Summary            string   `json:"summary"`
 	Description        string   `json:"description"`
 	Keywords           string   `json:"keywords"`
@@ -207,11 +208,18 @@ func (bd *BaseDistribution) Parse(data []byte) error {
 		headerValues := getAllHeaderValues(msg, headerAttr.HeaderName)
 		if len(headerValues) != 0 {
 			if headerAttr.Multiple {
-				bd.setJSONValue(headerAttr.AttrName, headerValues)
+				err := bd.setJSONValue(headerAttr.AttrName, headerValues)
+				if err != nil {
+					return err
+				}
 			} else if headerValues[0] != "UNKNOWN" {
-				bd.setJSONValue(headerAttr.AttrName, headerValues[0])
+				err := bd.setJSONValue(headerAttr.AttrName, headerValues[0])
+				if err != nil {
+					return err
+				}
 			}
 		}
+
 	}
 
 	body, err := io.ReadAll(msg.Body)
@@ -220,7 +228,10 @@ func (bd *BaseDistribution) Parse(data []byte) error {
 
 	}
 	if body != nil {
-		bd.setJSONValue("description", string(body))
+		err := bd.setJSONValue("description", string(body))
+		if err != nil {
+			return err
+		}
 	}
 	return nil
 }
@@ -228,12 +239,12 @@ func (bd *BaseDistribution) Parse(data []byte) error {
 func (bd *BaseDistribution) GetName() string {
 	return bd.Name
 }
+
 func (bd *BaseDistribution) GetVersion() string {
 	return bd.Version
 }
 
-// Remember to implement this for other distributions
-// if they need something more specific (e.g. Wheels)
+// TODO: remember to implement this for other distributions if they need something more specific (e.g. Wheels)
 func (bd *BaseDistribution) GetPythonVersion() string {
 	return ""
 }
@@ -302,4 +313,13 @@ func StructToMap(input interface{}) map[string][]string {
 	}
 
 	return result
+}
+
+// Convert an arbitrary string to a standard distribution name.
+// Any runs of non-alphanumeric/. characters are replaced with a single '-'.
+// Copied from pkg_resources.safe_name for compatibility with warehouse.
+// See https://github.com/pypa/twine/issues/743.
+func SafeName(name string) string {
+	reg := regexp.MustCompile("[^A-Za-z0-9.]+")
+	return reg.ReplaceAllString(name, "-")
 }

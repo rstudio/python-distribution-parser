@@ -2,12 +2,12 @@ package packages
 
 import (
 	"errors"
+	"github.com/rstudio/python-distribution-parser/internal/distributions"
+	"github.com/samber/lo"
 	"io"
+	"log"
 	"os"
 	"path/filepath"
-	"regexp"
-
-	"github.com/rstudio/python-distribution-parser/distributions"
 )
 
 type PackageFile struct {
@@ -31,15 +31,6 @@ type Signature struct {
 	Bytes    []byte `json:"signed_bytes"`
 }
 
-// Convert an arbitrary string to a standard distribution name.
-// Any runs of non-alphanumeric/. characters are replaced with a single '-'.
-// Copied from pkg_resources.safe_name for compatibility with warehouse.
-// See https://github.com/pypa/twine/issues/743.
-func safeName(name string) string {
-	reg := regexp.MustCompile("[^A-Za-z0-9.]+")
-	return reg.ReplaceAllString(name, "-")
-}
-
 func NewPackageFile(filename string) (*PackageFile, error) {
 	metadata, pythonVersion, fileType, err := distributions.NewDistributionMetadata(filename)
 	if err != nil {
@@ -47,7 +38,7 @@ func NewPackageFile(filename string) (*PackageFile, error) {
 	}
 
 	baseFilename := filepath.Base(filename)
-	safeName := safeName(metadata.GetName())
+	safeName := distributions.SafeName(metadata.GetName())
 
 	signedFilename := filename + ".asc"
 	signedBaseFilename := baseFilename + ".asc"
@@ -56,7 +47,10 @@ func NewPackageFile(filename string) (*PackageFile, error) {
 	if err != nil {
 		return nil, err
 	}
-	hashManager.Hash()
+	err = hashManager.Hash()
+	if err != nil {
+		return nil, err
+	}
 	hexdigest := hashManager.HexDigest()
 
 	return &PackageFile{
@@ -87,9 +81,46 @@ func (pf *PackageFile) MetadataMap() map[string][]string {
 		result[mk] = mv
 	}
 
+	result["name"] = result["safe_name"]
 	// This makes the request look more like Twine
 	result["protocol_version"] = []string{"1"}
-	delete(result, "metadata")
+	result[":action"] = []string{"file_upload"}
+
+	ignoredKeys := []string{
+		"base_filename",
+		"file_name",
+		"safe_name",
+		"signed_base_filename",
+		"signed_filename",
+		"metadata",
+	}
+
+	for _, key := range ignoredKeys {
+		delete(result, key)
+	}
+
+	allowedBlankValues := []string{
+		"author",
+		"author_email",
+		"comment",
+		"download_url",
+		"home_page",
+		"keywords",
+		"license",
+		"maintainer",
+		"pyversion",
+		"description_content_type",
+		"maintainer_email",
+		"requires_python",
+	}
+
+	// remove any keys that are an empty value, unless twine expects them
+	result = lo.OmitBy(result, func(key string, value []string) bool {
+		if lo.Contains(allowedBlankValues, key) {
+			return false
+		}
+		return value == nil || len(value) == 1 && (value[0] == "" || value[0] == "<nil>")
+	})
 
 	return result
 }
@@ -103,7 +134,12 @@ func (pf *PackageFile) AddGPGSignature(signatureFilepath string, signatureFilena
 	if err != nil {
 		return err
 	}
-	defer gpg.Close()
+	defer func(gpg *os.File) {
+		err := gpg.Close()
+		if err != nil {
+			log.Printf("error closing file: %v", err)
+		}
+	}(gpg)
 
 	bytes, err := io.ReadAll(gpg)
 	if err != nil {
