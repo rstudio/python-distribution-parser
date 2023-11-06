@@ -85,7 +85,7 @@
       (string) (len=41) "Composable command line interface toolkit"
     },
     (string) (len=7) "version": ([]string) (len=1) {
-      (string) (len=10) "8.2.0.dev0"
+      (string) (len=14) "version exists"
     }
   },
   GpgSignature: ([]uint8) <nil>

@@ -89,7 +89,7 @@
       (string) (len=40) "Universal encoding detector for Python 3"
     },
     (string) (len=7) "version": ([]string) (len=1) {
-      (string) (len=10) "5.3.0.dev0"
+      (string) (len=14) "version exists"
     }
   },
   GpgSignature: ([]uint8) <nil>

@@ -103,7 +103,7 @@
       (string) (len=34) "Read metadata from Python packages"
     },
     (string) (len=7) "version": ([]string) (len=1) {
-      (string) (len=20) "6.8.1.dev17+g353c3df"
+      (string) (len=14) "version exists"
     }
   },
   GpgSignature: ([]uint8) <nil>

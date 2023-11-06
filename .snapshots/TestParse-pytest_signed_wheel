@@ -118,7 +118,7 @@
       (string) (len=43) "pytest: simple powerful testing with Python"
     },
     (string) (len=7) "version": ([]string) (len=1) {
-      (string) (len=23) "8.0.0.dev305+g8fb7e8b31"
+      (string) (len=14) "version exists"
     }
   },
   GpgSignature: ([]uint8) (len=20) {

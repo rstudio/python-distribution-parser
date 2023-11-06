@@ -98,7 +98,7 @@
       (string) (len=53) "Updated configparser from stdlib for earlier Pythons."
     },
     (string) (len=7) "version": ([]string) (len=1) {
-      (string) (len=20) "6.0.1.dev11+g8411aec"
+      (string) (len=14) "version exists"
     }
   },
   GpgSignature: ([]uint8) (len=20) {

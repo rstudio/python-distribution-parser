@@ -85,7 +85,7 @@
       (string) (len=97) "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
     },
     (string) (len=7) "version": ([]string) (len=1) {
-      (string) (len=5) "1.4.4"
+      (string) (len=14) "version exists"
     }
   },
   GpgSignature: ([]uint8) <nil>
