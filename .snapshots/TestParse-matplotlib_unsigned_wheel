@@ -110,7 +110,7 @@
       (string) (len=23) "Python plotting package"
     },
     (string) (len=7) "version": ([]string) (len=1) {
-      (string) (len=10) "3.9.0.dev0"
+      (string) (len=14) "version exists"
     }
   },
   GpgSignature: ([]uint8) <nil>

@@ -6,7 +6,7 @@ on:
       - main
   pull_request:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 0 1 * *" # run on the first of each month
 
 jobs:
   test:

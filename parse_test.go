@@ -19,10 +19,9 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"net/url"
-	"path"
-
 	"os"
 	"os/exec"
+	"path"
 	"path/filepath"
 	"testing"
 )
@@ -78,7 +77,7 @@ func getArtifactPath(path string, extension string) (string, error) {
 	})
 
 	if len(artifacts) != 1 {
-		return "", fmt.Errorf("expected exactly 1 ParserData with extension %s in %s, but found %d", extension, path, len(artifacts))
+		return "", fmt.Errorf("expected exactly 1 file with extension %s in %s, but found %d", extension, path, len(artifacts))
 	}
 
 	return fmt.Sprintf("%s%s", path, artifacts[0].Name()), nil
@@ -113,7 +112,7 @@ func buildDistribution(directory string) error {
 	return nil
 }
 
-// signDistribution will use gpg to sign a ParserData, and return the path to the resulting `.asc` ParserData
+// signDistribution will use gpg to sign a file, and return the path to the resulting `.asc` file
 func signDistribution(file string) (string, error) {
 	signatureFile := fmt.Sprintf("%s.asc", file)
 
@@ -272,7 +271,7 @@ func checkRequirements() error {
 }
 
 // createDistribution builds a Python distribution and optionally signs it.
-// The method returns the location of the directory, built artifact, and signature ParserData if any.
+// The method returns the location of the directory, built artifact, and signature file if any.
 func createDistribution(repositoryUrl string, format string, isSigned bool) (string, string, error) {
 	repoUrl := repositoryUrl
 	repositoryName := toRepositoryName(repoUrl)
@@ -339,19 +338,23 @@ type ParserData struct {
 	GpgSignature []byte
 }
 
-// filterNondeterministicData replaces some generated fields with static strings
-func filterNondeterministicData(data ParserData) ParserData {
+// filterData replaces some generated fields with static strings
+func filterData(data ParserData) ParserData {
 	copiedData := maps.Clone(data.Metadata)
 
 	fields := []string{
 		"blake2_256_digest",
 		"md5_digest",
 		"sha256_digest",
+		"version",
 	}
 
 	for _, field := range fields {
-		if _, ok := copiedData[field]; ok {
-			copiedData[field] = []string{fmt.Sprintf("%s exists", field)}
+		if value, ok := copiedData[field]; ok {
+			values := lo.Map(value, func(_ string, _ int) string {
+				return fmt.Sprintf("%s exists", field)
+			})
+			copiedData[field] = values
 		}
 	}
 
@@ -411,7 +414,7 @@ func TestParse(t *testing.T) {
 			// compare against the normalized outputs to account for expects differences between the two parsers
 			assert.Empty(t, cmp.Diff(expectedMetadata, actualMetadata))
 
-			cupaloy.SnapshotT(t, filterNondeterministicData(actualMetadata))
+			cupaloy.SnapshotT(t, filterData(actualMetadata))
 		})
 	}
 }

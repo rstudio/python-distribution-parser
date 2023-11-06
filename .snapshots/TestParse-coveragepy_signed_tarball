@@ -98,7 +98,7 @@
       (string) (len=36) "Code coverage measurement for Python"
     },
     (string) (len=7) "version": ([]string) (len=1) {
-      (string) (len=12) "7.3.3a0.dev1"
+      (string) (len=14) "version exists"
     }
   },
   GpgSignature: ([]uint8) (len=20) {

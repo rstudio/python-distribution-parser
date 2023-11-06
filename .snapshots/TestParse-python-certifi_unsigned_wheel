@@ -85,7 +85,7 @@
       (string) (len=49) "Python package for providing Mozilla's CA Bundle."
     },
     (string) (len=7) "version": ([]string) (len=1) {
-      (string) (len=9) "2023.7.22"
+      (string) (len=14) "version exists"
     }
   },
   GpgSignature: ([]uint8) <nil>

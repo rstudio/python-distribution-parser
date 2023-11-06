@@ -87,7 +87,7 @@
       (string) (len=21) "Decorators for Humans"
     },
     (string) (len=7) "version": ([]string) (len=1) {
-      (string) (len=5) "5.1.1"
+      (string) (len=14) "version exists"
     }
   },
   GpgSignature: ([]uint8) <nil>
