@@ -4,13 +4,6 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"github.com/bradleyjkemp/cupaloy"
-	"github.com/google/go-cmp/cmp"
-	"github.com/rstudio/python-distribution-parser"
-	"github.com/rstudio/python-distribution-parser/types"
-	"github.com/samber/lo"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 	"io"
 	"log"
 	"maps"
@@ -24,25 +17,74 @@ import (
 	"path"
 	"path/filepath"
 	"testing"
+
+	"github.com/bradleyjkemp/cupaloy"
+	"github.com/google/go-cmp/cmp"
+	"github.com/rstudio/python-distribution-parser"
+	"github.com/rstudio/python-distribution-parser/types"
+	"github.com/samber/lo"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 // testdata is the path that we should store cloned repositories
 var testdata = "testdata/repositories/"
 
-// repositoryUrls is the list of repositories that we should test
-var repositoryUrls = []string{
-	"https://github.com/ActiveState/appdirs",
-	"https://github.com/pallets/click",
-	"https://github.com/python/importlib_metadata",
-	"https://github.com/matplotlib/matplotlib",
-	"https://github.com/pytest-dev/pytest",
-	"https://github.com/tkem/cachetools/",
-	"https://github.com/certifi/python-certifi",
-	"https://github.com/chardet/chardet",
-	"https://github.com/jaraco/configparser/",
-	"https://github.com/nedbat/coveragepy",
-	"https://github.com/micheles/decorator",
-	"https://github.com/tiran/defusedxml",
+type Repository struct {
+	url       string
+	reference string
+}
+
+// repositories is the list of repositories that we should test
+var repositories = []Repository{
+	{
+		url:       "https://github.com/ActiveState/appdirs",
+		reference: "1.4.4",
+	},
+	{
+		url:       "https://github.com/pallets/click",
+		reference: "8.1.7",
+	},
+	{
+		url:       "https://github.com/python/importlib_metadata",
+		reference: "v7.0.0",
+	},
+	{
+		url:       "https://github.com/matplotlib/matplotlib",
+		reference: "v3.8.2",
+	},
+	{
+		url:       "https://github.com/pytest-dev/pytest",
+		reference: "v7.4.3",
+	},
+	{
+		url:       "https://github.com/tkem/cachetools",
+		reference: "v5.3.2",
+	},
+	{
+		url:       "https://github.com/certifi/python-certifi",
+		reference: "v1.0.1",
+	},
+	{
+		url:       "https://github.com/chardet/chardet",
+		reference: "5.2.0",
+	},
+	{
+		url:       "https://github.com/jaraco/configparser",
+		reference: "v6.0.0",
+	},
+	{
+		url:       "https://github.com/nedbat/coveragepy",
+		reference: "coverage-5.5",
+	},
+	{
+		url:       "https://github.com/micheles/decorator",
+		reference: "4.4.2",
+	},
+	{
+		url:       "https://github.com/tiran/defusedxml",
+		reference: "v0.7.1",
+	},
 }
 
 // toRepositoryName converts a repository name to the name of the folder the repository will be cloned in
@@ -84,10 +126,10 @@ func getArtifactPath(path string, extension string) (string, error) {
 }
 
 // clone will clone a Git repository to disk if it does not already exist
-func clone(repositoryUrl string, destination string) error {
+func clone(repository Repository, destination string) error {
 	_, err := os.Stat(destination)
 	if os.IsNotExist(err) {
-		cmd := exec.Command("git", "clone", repositoryUrl, destination)
+		cmd := exec.Command("git", "clone", repository.url, destination, "--branch", repository.reference)
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 		err := cmd.Run()
@@ -272,13 +314,13 @@ func checkRequirements() error {
 
 // createDistribution builds a Python distribution and optionally signs it.
 // The method returns the location of the directory, built artifact, and signature file if any.
-func createDistribution(repositoryUrl string, format string, isSigned bool) (string, string, error) {
-	repoUrl := repositoryUrl
+func createDistribution(repository Repository, format string, isSigned bool) (string, string, error) {
+	repoUrl := repository.url
 	repositoryName := toRepositoryName(repoUrl)
 
 	repositoryPath := getRepositoryPath(repositoryName)
 
-	err := clone(repoUrl, repositoryPath)
+	err := clone(repository, repositoryPath)
 	if err != nil {
 		return "", "", err
 	}
@@ -328,9 +370,9 @@ func formatString(value string) string {
 }
 
 type testCase struct {
-	repositoryUrl string
-	isSigned      bool
-	format        string
+	repository Repository
+	isSigned   bool
+	format     string
 }
 
 type ParserData struct {
@@ -346,7 +388,6 @@ func filterData(data ParserData) ParserData {
 		"blake2_256_digest",
 		"md5_digest",
 		"sha256_digest",
-		"version",
 	}
 
 	for _, field := range fields {
@@ -374,19 +415,19 @@ func TestParse(t *testing.T) {
 	err := checkRequirements()
 	require.NoError(t, err)
 
-	testCases := lo.FlatMap(repositoryUrls, func(repositoryUrl string, _ int) []testCase {
+	testCases := lo.FlatMap(repositories, func(repository Repository, _ int) []testCase {
 		return lo.FlatMap([]bool{true, false}, func(isSigned bool, _ int) []testCase {
 			return lo.FlatMap([]string{".gz", ".whl"}, func(format string, _ int) []testCase {
-				repositoryName := toRepositoryName(repositoryUrl)
+				repositoryName := toRepositoryName(repository.url)
 				noWheels := []string{}
 				if lo.Contains(noWheels, repositoryName) && format == ".whl" {
 					return []testCase{}
 				}
 				return []testCase{
 					{
-						repositoryUrl: repositoryUrl,
-						isSigned:      isSigned,
-						format:        format,
+						repository: repository,
+						isSigned:   isSigned,
+						format:     format,
 					},
 				}
 			})
@@ -394,15 +435,15 @@ func TestParse(t *testing.T) {
 	})
 
 	for _, testCase := range testCases {
-		repositoryName := toRepositoryName(testCase.repositoryUrl)
+		repositoryName := toRepositoryName(testCase.repository.url)
 		require.NoError(t, err)
 
-		repositoryUrl := testCase.repositoryUrl
+		repository := testCase.repository
 		isSigned := testCase.isSigned
 		format := testCase.format
 
 		t.Run(fmt.Sprintf("%s %s %s", repositoryName, signedString(isSigned), formatString(format)), func(t *testing.T) {
-			artifact, signature, err := createDistribution(repositoryUrl, format, isSigned)
+			artifact, signature, err := createDistribution(repository, format, isSigned)
 			require.NoError(t, err)
 
 			expectedMetadata, err := getTwineFile(artifact, signature)

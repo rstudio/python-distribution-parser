@@ -4,7 +4,7 @@
       (string) (len=11) "file_upload"
     },
     (string) (len=6) "author": ([]string) (len=1) {
-      (string) (len=29) "Ned Batchelder and 218 others"
+      (string) (len=29) "Ned Batchelder and 142 others"
     },
     (string) (len=12) "author_email": ([]string) (len=1) {
       (string) (len=21) "ned@nedbatchelder.com"
@@ -12,29 +12,32 @@
     (string) (len=17) "blake2_256_digest": ([]string) (len=1) {
       (string) (len=24) "blake2_256_digest exists"
     },
-    (string) (len=11) "classifiers": ([]string) (len=16) {
+    (string) (len=11) "classifiers": ([]string) (len=19) {
       (string) (len=22) "Environment :: Console",
       (string) (len=31) "Intended Audience :: Developers",
       (string) (len=50) "License :: OSI Approved :: Apache Software License",
       (string) (len=34) "Operating System :: OS Independent",
       (string) (len=30) "Programming Language :: Python",
+      (string) (len=35) "Programming Language :: Python :: 2",
+      (string) (len=37) "Programming Language :: Python :: 2.7",
       (string) (len=35) "Programming Language :: Python :: 3",
+      (string) (len=37) "Programming Language :: Python :: 3.5",
+      (string) (len=37) "Programming Language :: Python :: 3.6",
+      (string) (len=37) "Programming Language :: Python :: 3.7",
       (string) (len=37) "Programming Language :: Python :: 3.8",
       (string) (len=37) "Programming Language :: Python :: 3.9",
       (string) (len=38) "Programming Language :: Python :: 3.10",
-      (string) (len=38) "Programming Language :: Python :: 3.11",
-      (string) (len=38) "Programming Language :: Python :: 3.12",
       (string) (len=59) "Programming Language :: Python :: Implementation :: CPython",
       (string) (len=56) "Programming Language :: Python :: Implementation :: PyPy",
       (string) (len=50) "Topic :: Software Development :: Quality Assurance",
       (string) (len=40) "Topic :: Software Development :: Testing",
-      (string) (len=31) "Development Status :: 3 - Alpha"
+      (string) (len=43) "Development Status :: 5 - Production/Stable"
     },
     (string) (len=7) "comment": ([]string) (len=1) {
       (string) ""
     },
     (string) (len=11) "description": ([]string) (len=1) {
-      (string) (len=6416) ".. Licensed under the Apache License: http://www.apache.org/licenses/LICENSE-2.0\n.. For details: https://github.com/nedbat/coveragepy/blob/master/NOTICE.txt\n\n===========\nCoverage.py\n===========\n\nCode coverage testing for Python.\n\n.. image:: https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg\n    :target: https://vshymanskyy.github.io/StandWithUkraine\n    :alt: Stand with Ukraine\n\n-------------\n\n|  |kit| |license| |versions|\n|  |test-status| |quality-status| |docs| |metacov|\n|  |tidelift| |sponsor| |stars| |mastodon-coveragepy| |mastodon-nedbat|\n\nCoverage.py measures code coverage, typically during test execution. It uses\nthe code analysis tools and tracing hooks provided in the Python standard\nlibrary to determine which lines are executable, and which have been executed.\n\nCoverage.py runs on these versions of Python:\n\n.. PYVERSIONS\n\n* CPython 3.8 through 3.12.\n* PyPy3 versions 3.8 through 3.10.\n\nDocumentation is on `Read the Docs`_.  Code repository and issue tracker are on\n`GitHub`_.\n\n.. _Read the Docs: https://coverage.readthedocs.io/en/7.3.3a0.dev1/\n.. _GitHub: https://github.com/nedbat/coveragepy\n\n**New in 7.x:**\ndropped support for Python 3.7;\nadded ``Coverage.collect()`` context manager;\nimproved data combining;\n``[run] exclude_also`` setting;\n``report --format=``;\ntype annotations.\n\n**New in 6.x:**\ndropped support for Python 2.7, 3.5, and 3.6;\nwrite data on SIGTERM;\nadded support for 3.10 match/case statements.\n\n\nFor Enterprise\n--------------\n\n.. |tideliftlogo| image:: https://nedbatchelder.com/pix/Tidelift_Logo_small.png\n   :alt: Tidelift\n   :target: https://tidelift.com/subscription/pkg/pypi-coverage?utm_source=pypi-coverage&utm_medium=referral&utm_campaign=readme\n\n.. list-table::\n   :widths: 10 100\n\n   * - |tideliftlogo|\n     - `Available as part of the Tidelift Subscription. <https://tidelift.com/subscription/pkg/pypi-coverage?utm_source=pypi-coverage&utm_medium=referral&utm_campaign=readme>`_\n       Coverage and thousands of other packages are working with\n       Tidelift to deliver one enterprise subscription that covers all of the open\n       source you use.  If you want the flexibility of open source and the confidence\n       of commercial-grade software, this is for you.\n       `Learn more. <https://tidelift.com/subscription/pkg/pypi-coverage?utm_source=pypi-coverage&utm_medium=referral&utm_campaign=readme>`_\n\n\nGetting Started\n---------------\n\nLooking to run ``coverage`` on your test suite? See the `Quick Start section`_\nof the docs.\n\n.. _Quick Start section: https://coverage.readthedocs.io/en/7.3.3a0.dev1/#quick-start\n\n\nChange history\n--------------\n\nThe complete history of changes is on the `change history page`_.\n\n.. _change history page: https://coverage.readthedocs.io/en/7.3.3a0.dev1/changes.html\n\n\nCode of Conduct\n---------------\n\nEveryone participating in the coverage.py project is expected to treat other\npeople with respect and to follow the guidelines articulated in the `Python\nCommunity Code of Conduct`_.\n\n.. _Python Community Code of Conduct: https://www.python.org/psf/codeofconduct/\n\n\nContributing\n------------\n\nFound a bug? Want to help improve the code or documentation? See the\n`Contributing section`_ of the docs.\n\n.. _Contributing section: https://coverage.readthedocs.io/en/7.3.3a0.dev1/contributing.html\n\n\nSecurity\n--------\n\nTo report a security vulnerability, please use the `Tidelift security\ncontact`_.  Tidelift will coordinate the fix and disclosure.\n\n.. _Tidelift security contact: https://tidelift.com/security\n\n\nLicense\n-------\n\nLicensed under the `Apache 2.0 License`_.  For details, see `NOTICE.txt`_.\n\n.. _Apache 2.0 License: http://www.apache.org/licenses/LICENSE-2.0\n.. _NOTICE.txt: https://github.com/nedbat/coveragepy/blob/master/NOTICE.txt\n\n\n.. |test-status| image:: https://github.com/nedbat/coveragepy/actions/workflows/testsuite.yml/badge.svg?branch=master&event=push\n    :target: https://github.com/nedbat/coveragepy/actions/workflows/testsuite.yml\n    :alt: Test suite status\n.. |quality-status| image:: https://github.com/nedbat/coveragepy/actions/workflows/quality.yml/badge.svg?branch=master&event=push\n    :target: https://github.com/nedbat/coveragepy/actions/workflows/quality.yml\n    :alt: Quality check status\n.. |docs| image:: https://readthedocs.org/projects/coverage/badge/?version=latest&style=flat\n    :target: https://coverage.readthedocs.io/en/7.3.3a0.dev1/\n    :alt: Documentation\n.. |kit| image:: https://img.shields.io/pypi/v/coverage\n    :target: https://pypi.org/project/coverage/\n    :alt: PyPI status\n.. |versions| image:: https://img.shields.io/pypi/pyversions/coverage.svg?logo=python&logoColor=FBE072\n    :target: https://pypi.org/project/coverage/\n    :alt: Python versions supported\n.. |license| image:: https://img.shields.io/pypi/l/coverage.svg\n    :target: https://pypi.org/project/coverage/\n    :alt: License\n.. |metacov| image:: https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/nedbat/8c6980f77988a327348f9b02bbaf67f5/raw/metacov.json\n    :target: https://nedbat.github.io/coverage-reports/latest.html\n    :alt: Coverage reports\n.. |tidelift| image:: https://tidelift.com/badges/package/pypi/coverage\n    :target: https://tidelift.com/subscription/pkg/pypi-coverage?utm_source=pypi-coverage&utm_medium=referral&utm_campaign=readme\n    :alt: Tidelift\n.. |stars| image:: https://img.shields.io/github/stars/nedbat/coveragepy.svg?logo=github\n    :target: https://github.com/nedbat/coveragepy/stargazers\n    :alt: GitHub stars\n.. |mastodon-nedbat| image:: https://img.shields.io/badge/dynamic/json?style=flat&labelColor=450657&logo=mastodon&logoColor=ffffff&link=https%3A%2F%2Fhachyderm.io%2F%40nedbat&url=https%3A%2F%2Fhachyderm.io%2Fusers%2Fnedbat%2Ffollowers.json&query=totalItems&label=@nedbat\n    :target: https://hachyderm.io/@nedbat\n    :alt: nedbat on Mastodon\n.. |mastodon-coveragepy| image:: https://img.shields.io/badge/dynamic/json?style=flat&labelColor=450657&logo=mastodon&logoColor=ffffff&link=https%3A%2F%2Fhachyderm.io%2F%40coveragepy&url=https%3A%2F%2Fhachyderm.io%2Fusers%2Fcoveragepy%2Ffollowers.json&query=totalItems&label=@coveragepy\n    :target: https://hachyderm.io/@coveragepy\n    :alt: coveragepy on Mastodon\n.. |sponsor| image:: https://img.shields.io/badge/%E2%9D%A4-Sponsor%20me-brightgreen?style=flat&logo=GitHub\n    :target: https://github.com/sponsors/nedbat\n    :alt: Sponsor me on GitHub\n"
+      (string) (len=6267) ".. Licensed under the Apache License: http://www.apache.org/licenses/LICENSE-2.0\n.. For details: https://github.com/nedbat/coveragepy/blob/master/NOTICE.txt\n\n===========\nCoverage.py\n===========\n\nCode coverage testing for Python.\n\n|  |license| |versions| |status|\n|  |test-status| |quality-status| |docs| |codecov|\n|  |kit| |format| |repos| |downloads|\n|  |stars| |forks| |contributors|\n|  |tidelift| |twitter-coveragepy| |twitter-nedbat|\n\nCoverage.py measures code coverage, typically during test execution. It uses\nthe code analysis tools and tracing hooks provided in the Python standard\nlibrary to determine which lines are executable, and which have been executed.\n\nCoverage.py runs on many versions of Python:\n\n* CPython 2.7.\n* CPython 3.5 through 3.10 alpha.\n* PyPy2 7.3.3 and PyPy3 7.3.3.\n\nDocumentation is on `Read the Docs`_.  Code repository and issue tracker are on\n`GitHub`_.\n\n.. _Read the Docs: https://coverage.readthedocs.io/\n.. _GitHub: https://github.com/nedbat/coveragepy\n\n\n**New in 5.x:** SQLite data storage, JSON report, contexts, relative filenames,\ndropped support for Python 2.6, 3.3 and 3.4.\n\n\nFor Enterprise\n--------------\n\n.. |tideliftlogo| image:: https://nedbatchelder.com/pix/Tidelift_Logo_small.png\n   :alt: Tidelift\n   :target: https://tidelift.com/subscription/pkg/pypi-coverage?utm_source=pypi-coverage&utm_medium=referral&utm_campaign=readme\n\n.. list-table::\n   :widths: 10 100\n\n   * - |tideliftlogo|\n     - `Available as part of the Tidelift Subscription. <https://tidelift.com/subscription/pkg/pypi-coverage?utm_source=pypi-coverage&utm_medium=referral&utm_campaign=readme>`_\n       Coverage and thousands of other packages are working with\n       Tidelift to deliver one enterprise subscription that covers all of the open\n       source you use.  If you want the flexibility of open source and the confidence\n       of commercial-grade software, this is for you.\n       `Learn more. <https://tidelift.com/subscription/pkg/pypi-coverage?utm_source=pypi-coverage&utm_medium=referral&utm_campaign=readme>`_\n\n\nGetting Started\n---------------\n\nSee the `Quick Start section`_ of the docs.\n\n.. _Quick Start section: https://coverage.readthedocs.io/#quick-start\n\n\nChange history\n--------------\n\nThe complete history of changes is on the `change history page`_.\n\n.. _change history page: https://coverage.readthedocs.io/en/latest/changes.html\n\n\nContributing\n------------\n\nSee the `Contributing section`_ of the docs.\n\n.. _Contributing section: https://coverage.readthedocs.io/en/latest/contributing.html\n\n\nSecurity\n--------\n\nTo report a security vulnerability, please use the `Tidelift security\ncontact`_.  Tidelift will coordinate the fix and disclosure.\n\n.. _Tidelift security contact: https://tidelift.com/security\n\n\nLicense\n-------\n\nLicensed under the `Apache 2.0 License`_.  For details, see `NOTICE.txt`_.\n\n.. _Apache 2.0 License: http://www.apache.org/licenses/LICENSE-2.0\n.. _NOTICE.txt: https://github.com/nedbat/coveragepy/blob/master/NOTICE.txt\n\n\n.. |test-status| image:: https://github.com/nedbat/coveragepy/actions/workflows/testsuite.yml/badge.svg?branch=master&event=push\n    :target: https://github.com/nedbat/coveragepy/actions/workflows/testsuite.yml\n    :alt: Test suite status\n.. |quality-status| image:: https://github.com/nedbat/coveragepy/actions/workflows/quality.yml/badge.svg?branch=master&event=push\n    :target: https://github.com/nedbat/coveragepy/actions/workflows/quality.yml\n    :alt: Quality check status\n.. |docs| image:: https://readthedocs.org/projects/coverage/badge/?version=latest&style=flat\n    :target: https://coverage.readthedocs.io/\n    :alt: Documentation\n.. |reqs| image:: https://requires.io/github/nedbat/coveragepy/requirements.svg?branch=master\n    :target: https://requires.io/github/nedbat/coveragepy/requirements/?branch=master\n    :alt: Requirements status\n.. |kit| image:: https://badge.fury.io/py/coverage.svg\n    :target: https://pypi.org/project/coverage/\n    :alt: PyPI status\n.. |format| image:: https://img.shields.io/pypi/format/coverage.svg\n    :target: https://pypi.org/project/coverage/\n    :alt: Kit format\n.. |downloads| image:: https://img.shields.io/pypi/dw/coverage.svg\n    :target: https://pypi.org/project/coverage/\n    :alt: Weekly PyPI downloads\n.. |versions| image:: https://img.shields.io/pypi/pyversions/coverage.svg?logo=python&logoColor=FBE072\n    :target: https://pypi.org/project/coverage/\n    :alt: Python versions supported\n.. |status| image:: https://img.shields.io/pypi/status/coverage.svg\n    :target: https://pypi.org/project/coverage/\n    :alt: Package stability\n.. |license| image:: https://img.shields.io/pypi/l/coverage.svg\n    :target: https://pypi.org/project/coverage/\n    :alt: License\n.. |codecov| image:: https://codecov.io/github/nedbat/coveragepy/coverage.svg?branch=master&precision=2\n    :target: https://codecov.io/github/nedbat/coveragepy?branch=master\n    :alt: Coverage!\n.. |repos| image:: https://repology.org/badge/tiny-repos/python:coverage.svg\n    :target: https://repology.org/metapackage/python:coverage/versions\n    :alt: Packaging status\n.. |tidelift| image:: https://tidelift.com/badges/package/pypi/coverage\n    :target: https://tidelift.com/subscription/pkg/pypi-coverage?utm_source=pypi-coverage&utm_medium=referral&utm_campaign=readme\n    :alt: Tidelift\n.. |stars| image:: https://img.shields.io/github/stars/nedbat/coveragepy.svg?logo=github\n    :target: https://github.com/nedbat/coveragepy/stargazers\n    :alt: Github stars\n.. |forks| image:: https://img.shields.io/github/forks/nedbat/coveragepy.svg?logo=github\n    :target: https://github.com/nedbat/coveragepy/network/members\n    :alt: Github forks\n.. |contributors| image:: https://img.shields.io/github/contributors/nedbat/coveragepy.svg?logo=github\n    :target: https://github.com/nedbat/coveragepy/graphs/contributors\n    :alt: Contributors\n.. |twitter-coveragepy| image:: https://img.shields.io/twitter/follow/coveragepy.svg?label=coveragepy&style=flat&logo=twitter&logoColor=4FADFF\n    :target: https://twitter.com/coveragepy\n    :alt: coverage.py on Twitter\n.. |twitter-nedbat| image:: https://img.shields.io/twitter/follow/nedbat.svg?label=nedbat&style=flat&logo=twitter&logoColor=4FADFF\n    :target: https://twitter.com/nedbat\n    :alt: nedbat on Twitter\n"
     },
     (string) (len=24) "description_content_type": ([]string) (len=1) {
       (string) (len=10) "text/x-rst"
@@ -52,7 +55,7 @@
       (string) (len=21) "code coverage testing"
     },
     (string) (len=7) "license": ([]string) (len=1) {
-      (string) (len=10) "Apache-2.0"
+      (string) (len=10) "Apache 2.0"
     },
     (string) (len=10) "maintainer": ([]string) (len=1) {
       (string) ""
@@ -69,12 +72,10 @@
     (string) (len=4) "name": ([]string) (len=1) {
       (string) (len=8) "coverage"
     },
-    (string) (len=12) "project_urls": ([]string) (len=5) {
-      (string) (len=62) "Documentation, https://coverage.readthedocs.io/en/7.3.3a0.dev1",
+    (string) (len=12) "project_urls": ([]string) (len=3) {
+      (string) (len=46) "Documentation, https://coverage.readthedocs.io",
       (string) (len=123) "Funding, https://tidelift.com/subscription/pkg/pypi-coverage?utm_source=pypi-coverage&utm_medium=referral&utm_campaign=pypi",
-      (string) (len=51) "Issues, https://github.com/nedbat/coveragepy/issues",
-      (string) (len=42) "Mastodon, https://hachyderm.io/@coveragepy",
-      (string) (len=47) "Mastodon (nedbat), https://hachyderm.io/@nedbat"
+      (string) (len=51) "Issues, https://github.com/nedbat/coveragepy/issues"
     },
     (string) (len=16) "protocol_version": ([]string) (len=1) {
       (string) (len=1) "1"
@@ -83,13 +84,13 @@
       (string) (len=4) "toml"
     },
     (string) (len=9) "pyversion": ([]string) (len=1) {
-      (string) (len=5) "cp312"
+      (string) (len=3) "py3"
     },
     (string) (len=13) "requires_dist": ([]string) (len=1) {
-      (string) (len=63) "tomli ; (python_full_version <= \"3.11.0a6\") and extra == 'toml'"
+      (string) (len=22) "toml ; extra == 'toml'"
     },
     (string) (len=15) "requires_python": ([]string) (len=1) {
-      (string) (len=5) ">=3.8"
+      (string) (len=54) ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
     },
     (string) (len=13) "sha256_digest": ([]string) (len=1) {
       (string) (len=20) "sha256_digest exists"
@@ -98,7 +99,7 @@
       (string) (len=36) "Code coverage measurement for Python"
     },
     (string) (len=7) "version": ([]string) (len=1) {
-      (string) (len=14) "version exists"
+      (string) (len=3) "5.5"
     }
   },
   GpgSignature: ([]uint8) <nil>
