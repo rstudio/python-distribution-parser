@@ -71,7 +71,7 @@
     (string) (len=9) "pyversion": ([]string) (len=1) {
       (string) ""
     },
-    (string) (len=13) "requires_dist": ([]string) (len=15) {
+    (string) (len=13) "requires_dist": ([]string) (len=14) {
       (string) (len=29) "pytest>=6; extra == \"testing\"",
       (string) (len=41) "pytest-checkdocs>=2.4; extra == \"testing\"",
       (string) (len=84) "pytest-black>=0.3.7; platform_python_implementation != \"PyPy\" and extra == \"testing\"",
@@ -81,7 +81,6 @@
       (string) (len=31) "pytest-ruff; extra == \"testing\"",
       (string) (len=35) "types-backports; extra == \"testing\"",
       (string) (len=28) "sphinx>=3.5; extra == \"docs\"",
-      (string) (len=29) "sphinx<7.2.5; extra == \"docs\"",
       (string) (len=38) "jaraco.packaging>=9.3; extra == \"docs\"",
       (string) (len=32) "rst.linker>=1.9; extra == \"docs\"",
       (string) (len=21) "furo; extra == \"docs\"",
@@ -98,7 +97,7 @@
       (string) (len=53) "Updated configparser from stdlib for earlier Pythons."
     },
     (string) (len=7) "version": ([]string) (len=1) {
-      (string) (len=14) "version exists"
+      (string) (len=5) "6.0.0"
     }
   },
   GpgSignature: ([]uint8) (len=20) {

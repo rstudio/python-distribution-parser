@@ -71,9 +71,8 @@
     (string) (len=9) "pyversion": ([]string) (len=1) {
       (string) (len=3) "py3"
     },
-    (string) (len=13) "requires_dist": ([]string) (len=15) {
+    (string) (len=13) "requires_dist": ([]string) (len=14) {
       (string) (len=30) "sphinx >=3.5 ; extra == 'docs'",
-      (string) (len=31) "sphinx <7.2.5 ; extra == 'docs'",
       (string) (len=40) "jaraco.packaging >=9.3 ; extra == 'docs'",
       (string) (len=34) "rst.linker >=1.9 ; extra == 'docs'",
       (string) (len=22) "furo ; extra == 'docs'",
@@ -98,7 +97,7 @@
       (string) (len=53) "Updated configparser from stdlib for earlier Pythons."
     },
     (string) (len=7) "version": ([]string) (len=1) {
-      (string) (len=14) "version exists"
+      (string) (len=5) "6.0.0"
     }
   },
   GpgSignature: ([]uint8) <nil>

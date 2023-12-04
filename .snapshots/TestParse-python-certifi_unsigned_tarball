@@ -1,5 +1,5 @@
 (parse_test.ParserData) {
-  Metadata: (map[string][]string) (len=25) {
+  Metadata: (map[string][]string) (len=24) {
     (string) (len=7) ":action": ([]string) (len=1) {
       (string) (len=11) "file_upload"
     },
@@ -12,26 +12,24 @@
     (string) (len=17) "blake2_256_digest": ([]string) (len=1) {
       (string) (len=24) "blake2_256_digest exists"
     },
-    (string) (len=11) "classifiers": ([]string) (len=13) {
+    (string) (len=11) "classifiers": ([]string) (len=11) {
       (string) (len=43) "Development Status :: 5 - Production/Stable",
       (string) (len=31) "Intended Audience :: Developers",
-      (string) (len=63) "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
       (string) (len=27) "Natural Language :: English",
       (string) (len=30) "Programming Language :: Python",
-      (string) (len=35) "Programming Language :: Python :: 3",
-      (string) (len=43) "Programming Language :: Python :: 3 :: Only",
-      (string) (len=37) "Programming Language :: Python :: 3.6",
-      (string) (len=37) "Programming Language :: Python :: 3.7",
-      (string) (len=37) "Programming Language :: Python :: 3.8",
-      (string) (len=37) "Programming Language :: Python :: 3.9",
-      (string) (len=38) "Programming Language :: Python :: 3.10",
-      (string) (len=38) "Programming Language :: Python :: 3.11"
+      (string) (len=37) "Programming Language :: Python :: 2.5",
+      (string) (len=37) "Programming Language :: Python :: 2.6",
+      (string) (len=37) "Programming Language :: Python :: 2.7",
+      (string) (len=37) "Programming Language :: Python :: 3.0",
+      (string) (len=37) "Programming Language :: Python :: 3.1",
+      (string) (len=37) "Programming Language :: Python :: 3.2",
+      (string) (len=37) "Programming Language :: Python :: 3.3"
     },
     (string) (len=7) "comment": ([]string) (len=1) {
       (string) ""
     },
     (string) (len=11) "description": ([]string) (len=1) {
-      (string) (len=1157) "Certifi: Python SSL Certificates\n================================\n\nCertifi provides Mozilla's carefully curated collection of Root Certificates for\nvalidating the trustworthiness of SSL certificates while verifying the identity\nof TLS hosts. It has been extracted from the `Requests`_ project.\n\nInstallation\n------------\n\n``certifi`` is available on PyPI. Simply install it with ``pip``::\n\n    $ pip install certifi\n\nUsage\n-----\n\nTo reference the installed certificate authority (CA) bundle, you can use the\nbuilt-in function::\n\n    >>> import certifi\n\n    >>> certifi.where()\n    '/usr/local/lib/python3.7/site-packages/certifi/cacert.pem'\n\nOr from the command line::\n\n    $ python -m certifi\n    /usr/local/lib/python3.7/site-packages/certifi/cacert.pem\n\nEnjoy!\n\n.. _`Requests`: https://requests.readthedocs.io/en/master/\n\nAddition/Removal of Certificates\n--------------------------------\n\nCertifi does not support any addition/removal or other modification of the\nCA trust store content. This project is intended to provide a reliable and\nhighly portable root of trust to python deployments. Look to upstream projects\nfor methods to use alternate trust.\n"
+      (string) (len=552) "Certifi: Python SSL Certificates\n================================\n\nThis installable Python package contains a CA Bundle that you can reference\nin your Python code. This is useful for verifying HTTP requests, for example.\n\nThis is the same CA Bundle which ships with the Requests codebase, and is\nderived from Mozilla Firefox's canonical set.\n\n\nUsage\n-----\n\nTo reference the installed CA Bundle, you can use the built-in function::\n\n    >>> import certifi\n\n    >>> certifi.where()\n    '/usr/local/lib/python2.7/site-packages/certifi/cacert.pem'\n\nEnjoy!\n"
     },
     (string) (len=24) "description_content_type": ([]string) (len=1) {
       (string) ""
@@ -43,13 +41,13 @@
       (string) (len=5) "sdist"
     },
     (string) (len=9) "home_page": ([]string) (len=1) {
-      (string) (len=41) "https://github.com/certifi/python-certifi"
+      (string) (len=26) "http://python-requests.org"
     },
     (string) (len=8) "keywords": ([]string) (len=1) {
       (string) ""
     },
     (string) (len=7) "license": ([]string) (len=1) {
-      (string) (len=7) "MPL-2.0"
+      (string) (len=3) "ISC"
     },
     (string) (len=10) "maintainer": ([]string) (len=1) {
       (string) ""
@@ -66,9 +64,6 @@
     (string) (len=4) "name": ([]string) (len=1) {
       (string) (len=7) "certifi"
     },
-    (string) (len=12) "project_urls": ([]string) (len=1) {
-      (string) (len=49) "Source, https://github.com/certifi/python-certifi"
-    },
     (string) (len=16) "protocol_version": ([]string) (len=1) {
       (string) (len=1) "1"
     },
@@ -76,16 +71,16 @@
       (string) ""
     },
     (string) (len=15) "requires_python": ([]string) (len=1) {
-      (string) (len=5) ">=3.6"
+      (string) ""
     },
     (string) (len=13) "sha256_digest": ([]string) (len=1) {
       (string) (len=20) "sha256_digest exists"
     },
     (string) (len=7) "summary": ([]string) (len=1) {
-      (string) (len=49) "Python package for providing Mozilla's CA Bundle."
+      (string) (len=23) "Python SSL Certificates"
     },
     (string) (len=7) "version": ([]string) (len=1) {
-      (string) (len=14) "version exists"
+      (string) (len=5) "1.0.1"
     }
   },
   GpgSignature: ([]uint8) <nil>
