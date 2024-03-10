@@ -52,7 +52,7 @@ jobs:
         run: gotestsum --jsonfile unit-tests.json
       - name: annotate tests
         if: always()
-        uses: guyarb/golang-test-annotations@v0.7.0
+        uses: guyarb/golang-test-annotations@v0.8.0
         with:
           test-results: unit-tests.json
       - name: notify slack on failure
