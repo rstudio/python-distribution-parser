@@ -111,7 +111,7 @@ var HeaderAttrs1_2 = append(HeaderAttrs1_1, []HeaderAttr{ // PEP 345
 var HeaderAttrs2_0 = HeaderAttrs1_2 //XXX PEP 426?
 
 var HeaderAttrs2_1 = append(HeaderAttrs1_2, []HeaderAttr{ // PEP 566
-	{"Provides-Extra", "provides_extras", true},
+	{"Provides-Extra", "provides_extra", true},
 	{"Description-Content-Type", "description_content_type", false},
 }...)
 
@@ -171,7 +171,7 @@ type BaseDistribution struct {
 	ObsoletesDist    []string `json:"obsoletes_dist"`
 	ProjectURLs      []string `json:"project_urls"`
 	// version 2.1
-	ProvidesExtras         []string `json:"provides_extras"`
+	ProvidesExtras         []string `json:"provides_extra"`
 	DescriptionContentType string   `json:"description_content_type"`
 	// version 2.2
 	Dynamic []string `json:"dynamic"`

@@ -86,7 +86,7 @@
     (string) (len=16) "protocol_version": ([]string) (len=1) {
       (string) (len=1) "1"
     },
-    (string) (len=15) "provides_extras": ([]string) (len=1) {
+    (string) (len=14) "provides_extra": ([]string) (len=1) {
       (string) (len=7) "testing"
     },
     (string) (len=9) "pyversion": ([]string) (len=1) {
