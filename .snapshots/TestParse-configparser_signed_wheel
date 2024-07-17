@@ -64,7 +64,7 @@
     (string) (len=16) "protocol_version": ([]string) (len=1) {
       (string) (len=1) "1"
     },
-    (string) (len=15) "provides_extras": ([]string) (len=2) {
+    (string) (len=14) "provides_extra": ([]string) (len=2) {
       (string) (len=4) "docs",
       (string) (len=7) "testing"
     },

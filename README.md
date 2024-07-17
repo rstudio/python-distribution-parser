@@ -96,7 +96,7 @@ And here is example output:
       "provides_dist": null,
       "obsoletes_dist": null,
       "project_urls": null,
-      "provides_extras": null,
+      "provides_extra": null,
       "description_content_type": "",
       "dynamic": null,
       "filename": "/path/to/appdirs/dist/appdirs-1.4.4-py2.py3-none-any.whl",
