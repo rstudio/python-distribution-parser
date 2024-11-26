@@ -73,8 +73,8 @@
       (string) (len=3) "py3"
     },
     (string) (len=13) "requires_dist": ([]string) (len=2) {
-      (string) (len=39) "colorama ; platform_system == \"Windows\"",
-      (string) (len=43) "importlib-metadata ; python_version < \"3.8\""
+      (string) (len=38) "colorama; platform_system == \"Windows\"",
+      (string) (len=42) "importlib-metadata; python_version < \"3.8\""
     },
     (string) (len=15) "requires_python": ([]string) (len=1) {
       (string) (len=5) ">=3.7"
