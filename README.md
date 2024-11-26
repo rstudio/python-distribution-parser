@@ -132,3 +132,18 @@ To update snapshots with [cupaloy](https://github.com/bradleyjkemp/cupaloy):
 ```bash
 UPDATE_SNAPSHOTS=true go test ./...
 ```
+
+## Running unit tests with Docker
+
+
+
+```bash
+$ docker build -t python-distr-parser-dev .
+
+$ docker run -it -v $(pwd):/python-distribution-parser python-distr-parser-dev /bin/bash
+
+# generate GPG key
+$ gpg --gen-key
+
+$ go test -count=1 -timeout=5m .
+```
