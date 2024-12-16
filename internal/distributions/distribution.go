@@ -117,6 +117,13 @@ var HeaderAttrs2_1 = append(HeaderAttrs1_2, []HeaderAttr{ // PEP 566
 
 var HeaderAttrs2_2 = append(HeaderAttrs2_1, HeaderAttr{"Dynamic", "dynamic", true}) // PEP 643
 
+var HeaderAttrs2_3 = HeaderAttrs2_2 // PEP 685
+
+var HeaderAttrs2_4 = append(HeaderAttrs2_3, []HeaderAttr{ // PEP 639
+	{"License-Expression", "license_expression", false},
+	{"License-File", "license_file", false},
+}...)
+
 var HeaderAttrs = map[string][]HeaderAttr{
 	"1.0": HeaderAttrs1_0,
 	"1.1": HeaderAttrs1_1,
@@ -124,6 +131,8 @@ var HeaderAttrs = map[string][]HeaderAttr{
 	"2.0": HeaderAttrs2_0,
 	"2.1": HeaderAttrs2_1,
 	"2.2": HeaderAttrs2_2,
+	"2.3": HeaderAttrs2_3,
+	"2.4": HeaderAttrs2_4,
 }
 
 type Distribution interface {
@@ -175,6 +184,9 @@ type BaseDistribution struct {
 	DescriptionContentType string   `json:"description_content_type"`
 	// version 2.2
 	Dynamic []string `json:"dynamic"`
+	// version 2.4
+	LicenseExpression string `json:"license_expression"`
+	LicenseFile       string `json:"license_file"`
 }
 
 func (bd *BaseDistribution) GetHeaderAttrs() []HeaderAttr {
