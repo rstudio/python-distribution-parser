@@ -177,12 +177,13 @@ type BaseDistribution struct {
 	Dynamic []string `json:"dynamic"`
 }
 
-func (bd *BaseDistribution) GetHeaderAttrs() []HeaderAttr {
+func (bd *BaseDistribution) GetHeaderAttrs() ([]HeaderAttr, error) {
 	ha, exists := HeaderAttrs[bd.MetadataVersion]
-	if exists {
-		return ha
+	if !exists {
+		return []HeaderAttr{}, fmt.Errorf("header attributes for metadata version %s not found", bd.MetadataVersion)
 	}
-	return []HeaderAttr{}
+
+	return ha, nil
 }
 
 func (bd *BaseDistribution) Parse(data []byte) error {
@@ -200,7 +201,12 @@ func (bd *BaseDistribution) Parse(data []byte) error {
 		bd.MetadataVersion = headerValue
 	}
 
-	for _, headerAttr := range bd.GetHeaderAttrs() {
+	headerAttrs, err := bd.GetHeaderAttrs()
+	if err != nil {
+		return err
+	}
+
+	for _, headerAttr := range headerAttrs {
 		if headerAttr.AttrName == "metadata_version" {
 			continue
 		}
