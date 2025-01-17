@@ -1,5 +1,5 @@
 (parse_test.ParserData) {
-  Metadata: (map[string][]string) (len=27) {
+  Metadata: (map[string][]string) (len=28) {
     (string) (len=7) ":action": ([]string) (len=1) {
       (string) (len=11) "file_upload"
     },
@@ -38,6 +38,22 @@
     (string) (len=12) "download_url": ([]string) (len=1) {
       (string) (len=57) "https://matplotlib.org/stable/users/installing/index.html"
     },
+    (string) (len=7) "dynamic": ([]string) (len=14) {
+      (string) (len=6) "author",
+      (string) (len=12) "author-email",
+      (string) (len=10) "classifier",
+      (string) (len=11) "description",
+      (string) (len=24) "description-content-type",
+      (string) (len=12) "download-url",
+      (string) (len=9) "home-page",
+      (string) (len=7) "license",
+      (string) (len=8) "platform",
+      (string) (len=11) "project-url",
+      (string) (len=14) "provides-extra",
+      (string) (len=13) "requires-dist",
+      (string) (len=15) "requires-python",
+      (string) (len=7) "summary"
+    },
     (string) (len=8) "filetype": ([]string) (len=1) {
       (string) (len=11) "bdist_wheel"
     },
@@ -60,7 +76,7 @@
       (string) (len=17) "md5_digest exists"
     },
     (string) (len=16) "metadata_version": ([]string) (len=1) {
-      (string) (len=3) "2.1"
+      (string) (len=3) "2.2"
     },
     (string) (len=4) "name": ([]string) (len=1) {
       (string) (len=10) "matplotlib"
