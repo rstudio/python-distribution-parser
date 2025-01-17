@@ -53,7 +53,7 @@
       (string) (len=17) "md5_digest exists"
     },
     (string) (len=16) "metadata_version": ([]string) (len=1) {
-      (string) (len=3) "2.1"
+      (string) (len=3) "2.2"
     },
     (string) (len=4) "name": ([]string) (len=1) {
       (string) (len=18) "importlib-metadata"
