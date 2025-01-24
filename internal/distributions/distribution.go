@@ -213,6 +213,11 @@ func (bd *BaseDistribution) Parse(data []byte) error {
 					return err
 				}
 			} else if headerValues[0] != "UNKNOWN" {
+				// Manipulate the keywords so there are spaces in between to match Twine output
+				if headerAttr.AttrName == "keywords"{
+					headerValues[0] = strings.Join(strings.Split(headerValues[0], ","), ", ")
+				}
+
 				err := bd.setJSONValue(headerAttr.AttrName, headerValues[0])
 				if err != nil {
 					return err

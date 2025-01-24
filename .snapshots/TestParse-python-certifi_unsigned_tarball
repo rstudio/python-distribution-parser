@@ -1,5 +1,5 @@
 (parse_test.ParserData) {
-  Metadata: (map[string][]string) (len=25) {
+  Metadata: (map[string][]string) (len=18) {
     (string) (len=7) ":action": ([]string) (len=1) {
       (string) (len=11) "file_upload"
     },
@@ -25,17 +25,8 @@
       (string) (len=37) "Programming Language :: Python :: 3.2",
       (string) (len=37) "Programming Language :: Python :: 3.3"
     },
-    (string) (len=7) "comment": ([]string) (len=1) {
-      (string) ""
-    },
     (string) (len=11) "description": ([]string) (len=1) {
       (string) (len=552) "Certifi: Python SSL Certificates\n================================\n\nThis installable Python package contains a CA Bundle that you can reference\nin your Python code. This is useful for verifying HTTP requests, for example.\n\nThis is the same CA Bundle which ships with the Requests codebase, and is\nderived from Mozilla Firefox's canonical set.\n\n\nUsage\n-----\n\nTo reference the installed CA Bundle, you can use the built-in function::\n\n    >>> import certifi\n\n    >>> certifi.where()\n    '/usr/local/lib/python2.7/site-packages/certifi/cacert.pem'\n\nEnjoy!\n"
-    },
-    (string) (len=24) "description_content_type": ([]string) (len=1) {
-      (string) ""
-    },
-    (string) (len=12) "download_url": ([]string) (len=1) {
-      (string) ""
     },
     (string) (len=7) "dynamic": ([]string) (len=7) {
       (string) (len=6) "author",
@@ -52,17 +43,8 @@
     (string) (len=9) "home_page": ([]string) (len=1) {
       (string) (len=26) "http://python-requests.org"
     },
-    (string) (len=8) "keywords": ([]string) (len=1) {
-      (string) ""
-    },
     (string) (len=7) "license": ([]string) (len=1) {
       (string) (len=3) "ISC"
-    },
-    (string) (len=10) "maintainer": ([]string) (len=1) {
-      (string) ""
-    },
-    (string) (len=16) "maintainer_email": ([]string) (len=1) {
-      (string) ""
     },
     (string) (len=10) "md5_digest": ([]string) (len=1) {
       (string) (len=17) "md5_digest exists"
@@ -77,10 +59,7 @@
       (string) (len=1) "1"
     },
     (string) (len=9) "pyversion": ([]string) (len=1) {
-      (string) ""
-    },
-    (string) (len=15) "requires_python": ([]string) (len=1) {
-      (string) ""
+      (string) (len=6) "source"
     },
     (string) (len=13) "sha256_digest": ([]string) (len=1) {
       (string) (len=20) "sha256_digest exists"

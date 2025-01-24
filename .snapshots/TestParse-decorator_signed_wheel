@@ -1,5 +1,5 @@
 (parse_test.ParserData) {
-  Metadata: (map[string][]string) (len=26) {
+  Metadata: (map[string][]string) (len=21) {
     (string) (len=7) ":action": ([]string) (len=1) {
       (string) (len=11) "file_upload"
     },
@@ -35,17 +35,8 @@
       (string) (len=42) "Topic :: Software Development :: Libraries",
       (string) (len=18) "Topic :: Utilities"
     },
-    (string) (len=7) "comment": ([]string) (len=1) {
-      (string) ""
-    },
     (string) (len=11) "description": ([]string) (len=1) {
       (string) (len=2912) "Decorators for Humans\n=====================\n\nThe goal of the decorator module is to make it easy to define\nsignature-preserving function decorators and decorator factories.\nIt also includes an implementation of multiple dispatch and other niceties\n(please check the docs). It is released under a two-clauses\nBSD license, i.e. basically you can do whatever you want with it but I am not\nresponsible.\n\nInstallation\n-------------\n\nIf you are lazy, just perform\n\n ``$ pip install decorator``\n\nwhich will install just the module on your system.\n\nIf you prefer to install the full distribution from source, including\nthe documentation, clone the `GitHub repo`_ or download the tarball_, unpack it and run\n\n ``$ pip install .``\n\nin the main directory, possibly as superuser.\n\n.. _tarball: https://pypi.org/project/decorator/#files\n.. _GitHub repo: https://github.com/micheles/decorator\n\nTesting\n--------\n\nIf you have the source code installation you can run the tests with\n\n `$ python src/tests/test.py -v`\n\nor (if you have setuptools installed)\n\n `$ python setup.py test`\n\nNotice that you may run into trouble if in your system there\nis an older version of the decorator module; in such a case remove the\nold version. It is safe even to copy the module `decorator.py` over\nan existing one, since we kept backward-compatibility for a long time.\n\nRepository\n---------------\n\nThe project is hosted on GitHub. You can look at the source here:\n\n https://github.com/micheles/decorator\n\nDocumentation\n---------------\n\nThe documentation has been moved to https://github.com/micheles/decorator/blob/master/docs/documentation.md\n\nFrom there you can get a PDF version by simply using the print\nfunctionality of your browser.\n\nHere is the documentation for previous versions of the module:\n\nhttps://github.com/micheles/decorator/blob/4.3.2/docs/tests.documentation.rst\nhttps://github.com/micheles/decorator/blob/4.2.1/docs/tests.documentation.rst\nhttps://github.com/micheles/decorator/blob/4.1.2/docs/tests.documentation.rst\nhttps://github.com/micheles/decorator/blob/4.0.0/documentation.rst\nhttps://github.com/micheles/decorator/blob/3.4.2/documentation.rst\n\nFor the impatient\n-----------------\n\nHere is an example of how to define a family of decorators tracing slow\noperations:\n\n.. code-block:: python\n\n   from decorator import decorator\n\n   @decorator\n   def warn_slow(func, timelimit=60, *args, **kw):\n       t0 = time.time()\n       result = func(*args, **kw)\n       dt = time.time() - t0\n       if dt > timelimit:\n           logging.warn('%s took %d seconds', func.__name__, dt)\n       else:\n           logging.info('%s took %d seconds', func.__name__, dt)\n       return result\n\n   @warn_slow  # warn if it takes more than 1 minute\n   def preprocess_input_files(inputdir, tempdir):\n       ...\n\n   @warn_slow(timelimit=600)  # warn if it takes more than 10 minutes\n   def run_calculation(tempdir, outdir):\n       ...\n\nEnjoy!\n"
-    },
-    (string) (len=24) "description_content_type": ([]string) (len=1) {
-      (string) ""
-    },
-    (string) (len=12) "download_url": ([]string) (len=1) {
-      (string) ""
     },
     (string) (len=7) "dynamic": ([]string) (len=10) {
       (string) (len=6) "author",
@@ -70,12 +61,6 @@
     },
     (string) (len=7) "license": ([]string) (len=1) {
       (string) (len=15) "new BSD License"
-    },
-    (string) (len=10) "maintainer": ([]string) (len=1) {
-      (string) ""
-    },
-    (string) (len=16) "maintainer_email": ([]string) (len=1) {
-      (string) ""
     },
     (string) (len=10) "md5_digest": ([]string) (len=1) {
       (string) (len=17) "md5_digest exists"
