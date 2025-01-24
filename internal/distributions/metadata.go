@@ -81,7 +81,7 @@ func NewDistributionMetadata(filename string) (Distribution, string, string, err
 	case "bdist_wheel", "bdist_wininst":
 		pythonVersion = metadata.GetPythonVersion()
 	default:
-		pythonVersion = ""
+		pythonVersion = "source" // Updated in twine 6.1.0
 	}
 
 	return metadata, pythonVersion, fileType, nil

@@ -62,26 +62,9 @@ func (pf *PackageFile) MetadataMap() map[string][]string {
 		delete(result, key)
 	}
 
-	allowedBlankValues := []string{
-		"author",
-		"author_email",
-		"comment",
-		"download_url",
-		"home_page",
-		"keywords",
-		"license",
-		"maintainer",
-		"pyversion",
-		"description_content_type",
-		"maintainer_email",
-		"requires_python",
-	}
 
 	// remove any keys that are an empty value, unless twine expects them
 	result = lo.OmitBy(result, func(key string, value []string) bool {
-		if lo.Contains(allowedBlankValues, key) {
-			return false
-		}
 		return value == nil || len(value) == 1 && (value[0] == "" || value[0] == "<nil>")
 	})
 
