@@ -20,7 +20,7 @@ import (
 
 	"github.com/bradleyjkemp/cupaloy"
 	"github.com/google/go-cmp/cmp"
-	"github.com/rstudio/python-distribution-parser"
+	parse "github.com/rstudio/python-distribution-parser"
 	"github.com/rstudio/python-distribution-parser/types"
 	"github.com/samber/lo"
 	"github.com/stretchr/testify/assert"
@@ -84,6 +84,10 @@ var repositories = []Repository{
 	{
 		url:       "https://github.com/tiran/defusedxml",
 		reference: "v0.7.1",
+	},
+	{
+		url:       "https://github.com/pypa/hatch",
+		reference: "hatchling-v1.27.0",
 	},
 }
 

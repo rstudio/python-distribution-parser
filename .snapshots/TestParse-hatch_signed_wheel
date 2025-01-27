@@ -1,0 +1,104 @@
+(parse_test.ParserData) {
+  Metadata: (map[string][]string) (len=21) {
+    (string) (len=7) ":action": ([]string) (len=1) {
+      (string) (len=11) "file_upload"
+    },
+    (string) (len=12) "author_email": ([]string) (len=1) {
+      (string) (len=23) "Ofek Lev <oss@ofek.dev>"
+    },
+    (string) (len=17) "blake2_256_digest": ([]string) (len=1) {
+      (string) (len=24) "blake2_256_digest exists"
+    },
+    (string) (len=11) "classifiers": ([]string) (len=14) {
+      (string) (len=43) "Development Status :: 5 - Production/Stable",
+      (string) (len=31) "Intended Audience :: Developers",
+      (string) (len=38) "License :: OSI Approved :: MIT License",
+      (string) (len=27) "Natural Language :: English",
+      (string) (len=34) "Operating System :: OS Independent",
+      (string) (len=37) "Programming Language :: Python :: 3.8",
+      (string) (len=37) "Programming Language :: Python :: 3.9",
+      (string) (len=38) "Programming Language :: Python :: 3.10",
+      (string) (len=38) "Programming Language :: Python :: 3.11",
+      (string) (len=38) "Programming Language :: Python :: 3.12",
+      (string) (len=38) "Programming Language :: Python :: 3.13",
+      (string) (len=59) "Programming Language :: Python :: Implementation :: CPython",
+      (string) (len=56) "Programming Language :: Python :: Implementation :: PyPy",
+      (string) (len=44) "Topic :: Software Development :: Build Tools"
+    },
+    (string) (len=11) "description": ([]string) (len=1) {
+      (string) (len=3714) "# Hatch\n\n<div align=\"center\">\n\n<img src=\"https://raw.githubusercontent.com/pypa/hatch/master/docs/assets/images/logo.svg\" alt=\"Hatch logo\" width=\"500\" role=\"img\">\n\n| | |\n| --- | --- |\n| CI/CD | [![CI - Test](https://github.com/pypa/hatch/actions/workflows/test.yml/badge.svg)](https://github.com/pypa/hatch/actions/workflows/test.yml) [![CD - Build Hatch](https://github.com/pypa/hatch/actions/workflows/build-hatch.yml/badge.svg)](https://github.com/pypa/hatch/actions/workflows/build-hatch.yml) [![CD - Build Hatchling](https://github.com/pypa/hatch/actions/workflows/build-hatchling.yml/badge.svg)](https://github.com/pypa/hatch/actions/workflows/build-hatchling.yml) |\n| Docs | [![Docs - Release](https://github.com/pypa/hatch/actions/workflows/docs-release.yml/badge.svg)](https://github.com/pypa/hatch/actions/workflows/docs-release.yml) [![Docs - Dev](https://github.com/pypa/hatch/actions/workflows/docs-dev.yml/badge.svg)](https://github.com/pypa/hatch/actions/workflows/docs-dev.yml) |\n| Package | [![PyPI - Version](https://img.shields.io/pypi/v/hatch.svg?logo=pypi&label=PyPI&logoColor=gold)](https://pypi.org/project/hatch/) [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/hatch.svg?logo=python&label=Python&logoColor=gold)](https://pypi.org/project/hatch/) [![PyPI - Installs](https://img.shields.io/pypi/dm/hatchling.svg?color=blue&label=Installs&logo=pypi&logoColor=gold)](https://pypi.org/project/hatch/) [![Release - Downloads](https://img.shields.io/github/downloads/pypa/hatch/total?label=Downloads)](https://github.com/pypa/hatch/releases) |\n| Meta | [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch) [![linting - Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff) [![types - Mypy](https://img.shields.io/badge/types-Mypy-blue.svg)](https://github.com/python/mypy) [![License - MIT](https://img.shields.io/badge/license-MIT-9400d3.svg)](https://spdx.org/licenses/) [![GitHub Sponsors](https://img.shields.io/github/sponsors/ofek?logo=GitHub%20Sponsors&style=social)](https://github.com/sponsors/ofek) |\n\n</div>\n\n-----\n\nHatch is a modern, extensible Python project manager.\n\n## Features\n\n- Standardized [build system](https://hatch.pypa.io/latest/config/build/#build-system) with reproducible builds by default\n- Robust [environment management](https://hatch.pypa.io/latest/environment/) with support for custom scripts and UV\n- Configurable [Python distribution management](https://hatch.pypa.io/latest/tutorials/python/manage/)\n- [Test execution](https://hatch.pypa.io/latest/tutorials/testing/overview/) with known best practices\n- [Static analysis](https://hatch.pypa.io/latest/config/static-analysis/) with sane defaults\n- Built-in Python [script runner](https://hatch.pypa.io/latest/how-to/run/python-scripts/)\n- Easy [publishing](https://hatch.pypa.io/latest/publish/) to PyPI or other indices\n- [Version](https://hatch.pypa.io/latest/version/) management\n- Best practice [project generation](https://hatch.pypa.io/latest/config/project-templates/)\n- Responsive [CLI](https://hatch.pypa.io/latest/cli/about/), ~2-3x [faster](https://github.com/pypa/hatch/actions/workflows/cli.yml) than equivalent tools\n\nSee the [Why Hatch?](https://hatch.pypa.io/latest/why/) page for more information.\n\n## Documentation\n\nThe [documentation](https://hatch.pypa.io/) is made with [Material for MkDocs](https://github.com/squidfunk/mkdocs-material) and is hosted by [GitHub Pages](https://docs.github.com/en/pages).\n\n## License\n\nHatch is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.\n"
+    },
+    (string) (len=24) "description_content_type": ([]string) (len=1) {
+      (string) (len=13) "text/markdown"
+    },
+    (string) (len=8) "filetype": ([]string) (len=1) {
+      (string) (len=11) "bdist_wheel"
+    },
+    (string) (len=8) "keywords": ([]string) (len=1) {
+      (string) (len=89) "build, dependency, environment, hatch, packaging, plugin, publishing, release, versioning"
+    },
+    (string) (len=18) "license_expression": ([]string) (len=1) {
+      (string) (len=3) "MIT"
+    },
+    (string) (len=12) "license_file": ([]string) (len=1) {
+      (string) (len=11) "LICENSE.txt"
+    },
+    (string) (len=10) "md5_digest": ([]string) (len=1) {
+      (string) (len=17) "md5_digest exists"
+    },
+    (string) (len=16) "metadata_version": ([]string) (len=1) {
+      (string) (len=3) "2.4"
+    },
+    (string) (len=4) "name": ([]string) (len=1) {
+      (string) (len=5) "hatch"
+    },
+    (string) (len=12) "project_urls": ([]string) (len=5) {
+      (string) (len=39) "Homepage, https://hatch.pypa.io/latest/",
+      (string) (len=41) "Sponsor, https://github.com/sponsors/ofek",
+      (string) (len=49) "History, https://hatch.pypa.io/dev/history/hatch/",
+      (string) (len=45) "Tracker, https://github.com/pypa/hatch/issues",
+      (string) (len=37) "Source, https://github.com/pypa/hatch"
+    },
+    (string) (len=16) "protocol_version": ([]string) (len=1) {
+      (string) (len=1) "1"
+    },
+    (string) (len=9) "pyversion": ([]string) (len=1) {
+      (string) (len=3) "py3"
+    },
+    (string) (len=13) "requires_dist": ([]string) (len=17) {
+      (string) (len=12) "click>=8.0.6",
+      (string) (len=17) "hatchling>=1.24.2",
+      (string) (len=13) "httpx>=0.22.0",
+      (string) (len=17) "hyperlink>=21.0.0",
+      (string) (len=15) "keyring>=23.5.0",
+      (string) (len=15) "packaging>=24.2",
+      (string) (len=12) "pexpect~=4.8",
+      (string) (len=19) "platformdirs>=2.5.0",
+      (string) (len=15) "pyproject-hooks",
+      (string) (len=12) "rich>=11.2.0",
+      (string) (len=18) "shellingham>=1.4.0",
+      (string) (len=12) "tomli-w>=1.0",
+      (string) (len=15) "tomlkit>=0.11.1",
+      (string) (len=13) "userpath~=1.7",
+      (string) (len=10) "uv>=0.1.35",
+      (string) (len=19) "virtualenv>=20.26.6",
+      (string) (len=11) "zstandard<1"
+    },
+    (string) (len=15) "requires_python": ([]string) (len=1) {
+      (string) (len=5) ">=3.8"
+    },
+    (string) (len=13) "sha256_digest": ([]string) (len=1) {
+      (string) (len=20) "sha256_digest exists"
+    },
+    (string) (len=7) "summary": ([]string) (len=1) {
+      (string) (len=44) "Modern, extensible Python project management"
+    },
+    (string) (len=7) "version": ([]string) (len=1) {
+      (string) (len=12) "1.12.1.dev47"
+    }
+  },
+  GpgSignature: ([]uint8) (len=20) {
+    00000000  47 50 47 20 73 69 67 6e  61 74 75 72 65 20 65 78  |GPG signature ex|
+    00000010  69 73 74 73                                       |ists|
+  }
+}
