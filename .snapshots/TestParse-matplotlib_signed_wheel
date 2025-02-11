@@ -83,7 +83,7 @@
       (string) (len=1) "1"
     },
     (string) (len=9) "pyversion": ([]string) (len=1) {
-      (string) (len=5) "cp312"
+      (string) (len=5) "cp313"
     },
     (string) (len=13) "requires_dist": ([]string) (len=10) {
       (string) (len=16) "contourpy>=1.0.1",
