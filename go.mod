@@ -1,6 +1,6 @@
 module github.com/rstudio/python-distribution-parser
 
-go 1.21
+go 1.24
 
 require (
 	github.com/bradleyjkemp/cupaloy v2.3.0+incompatible
