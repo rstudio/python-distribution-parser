@@ -1,5 +1,5 @@
 (parse_test.ParserData) {
-  Metadata: (map[string][]string) (len=18) {
+  Metadata: (map[string][]string) (len=19) {
     (string) (len=7) ":action": ([]string) (len=1) {
       (string) (len=11) "file_upload"
     },
@@ -28,13 +28,14 @@
     (string) (len=11) "description": ([]string) (len=1) {
       (string) (len=552) "Certifi: Python SSL Certificates\n================================\n\nThis installable Python package contains a CA Bundle that you can reference\nin your Python code. This is useful for verifying HTTP requests, for example.\n\nThis is the same CA Bundle which ships with the Requests codebase, and is\nderived from Mozilla Firefox's canonical set.\n\n\nUsage\n-----\n\nTo reference the installed CA Bundle, you can use the built-in function::\n\n    >>> import certifi\n\n    >>> certifi.where()\n    '/usr/local/lib/python2.7/site-packages/certifi/cacert.pem'\n\nEnjoy!\n"
     },
-    (string) (len=7) "dynamic": ([]string) (len=7) {
+    (string) (len=7) "dynamic": ([]string) (len=8) {
       (string) (len=6) "author",
       (string) (len=12) "author-email",
       (string) (len=10) "classifier",
       (string) (len=11) "description",
       (string) (len=9) "home-page",
       (string) (len=7) "license",
+      (string) (len=12) "license-file",
       (string) (len=7) "summary"
     },
     (string) (len=8) "filetype": ([]string) (len=1) {
@@ -46,11 +47,14 @@
     (string) (len=7) "license": ([]string) (len=1) {
       (string) (len=3) "ISC"
     },
+    (string) (len=12) "license_file": ([]string) (len=1) {
+      (string) (len=7) "LICENSE"
+    },
     (string) (len=10) "md5_digest": ([]string) (len=1) {
       (string) (len=17) "md5_digest exists"
     },
     (string) (len=16) "metadata_version": ([]string) (len=1) {
-      (string) (len=3) "2.2"
+      (string) (len=3) "2.4"
     },
     (string) (len=4) "name": ([]string) (len=1) {
       (string) (len=7) "certifi"

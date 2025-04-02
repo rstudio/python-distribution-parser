@@ -1,5 +1,5 @@
 (parse_test.ParserData) {
-  Metadata: (map[string][]string) (len=23) {
+  Metadata: (map[string][]string) (len=25) {
     (string) (len=7) ":action": ([]string) (len=1) {
       (string) (len=11) "file_upload"
     },
@@ -34,6 +34,9 @@
     (string) (len=24) "description_content_type": ([]string) (len=1) {
       (string) (len=10) "text/x-rst"
     },
+    (string) (len=7) "dynamic": ([]string) (len=1) {
+      (string) (len=12) "license-file"
+    },
     (string) (len=8) "filetype": ([]string) (len=1) {
       (string) (len=5) "sdist"
     },
@@ -46,11 +49,14 @@
     (string) (len=7) "license": ([]string) (len=1) {
       (string) (len=3) "MIT"
     },
+    (string) (len=12) "license_file": ([]string) (len=1) {
+      (string) (len=7) "LICENSE"
+    },
     (string) (len=10) "md5_digest": ([]string) (len=1) {
       (string) (len=17) "md5_digest exists"
     },
     (string) (len=16) "metadata_version": ([]string) (len=1) {
-      (string) (len=3) "2.2"
+      (string) (len=3) "2.4"
     },
     (string) (len=4) "name": ([]string) (len=1) {
       (string) (len=6) "pytest"

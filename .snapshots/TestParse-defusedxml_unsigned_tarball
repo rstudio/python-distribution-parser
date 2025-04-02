@@ -1,5 +1,5 @@
 (parse_test.ParserData) {
-  Metadata: (map[string][]string) (len=24) {
+  Metadata: (map[string][]string) (len=25) {
     (string) (len=7) ":action": ([]string) (len=1) {
       (string) (len=11) "file_upload"
     },
@@ -34,7 +34,7 @@
     (string) (len=12) "download_url": ([]string) (len=1) {
       (string) (len=39) "https://pypi.python.org/pypi/defusedxml"
     },
-    (string) (len=7) "dynamic": ([]string) (len=13) {
+    (string) (len=7) "dynamic": ([]string) (len=14) {
       (string) (len=6) "author",
       (string) (len=12) "author-email",
       (string) (len=10) "classifier",
@@ -43,6 +43,7 @@
       (string) (len=9) "home-page",
       (string) (len=8) "keywords",
       (string) (len=7) "license",
+      (string) (len=12) "license-file",
       (string) (len=10) "maintainer",
       (string) (len=16) "maintainer-email",
       (string) (len=8) "platform",
@@ -61,6 +62,9 @@
     (string) (len=7) "license": ([]string) (len=1) {
       (string) (len=4) "PSFL"
     },
+    (string) (len=12) "license_file": ([]string) (len=1) {
+      (string) (len=7) "LICENSE"
+    },
     (string) (len=10) "maintainer": ([]string) (len=1) {
       (string) (len=16) "Christian Heimes"
     },
@@ -71,7 +75,7 @@
       (string) (len=17) "md5_digest exists"
     },
     (string) (len=16) "metadata_version": ([]string) (len=1) {
-      (string) (len=3) "2.2"
+      (string) (len=3) "2.4"
     },
     (string) (len=4) "name": ([]string) (len=1) {
       (string) (len=10) "defusedxml"

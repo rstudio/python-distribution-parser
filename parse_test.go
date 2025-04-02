@@ -49,10 +49,10 @@ var repositories = []Repository{
 		url:       "https://github.com/python/importlib_metadata",
 		reference: "v7.0.0",
 	},
-	{
-		url:       "https://github.com/matplotlib/matplotlib",
-		reference: "v3.8.2",
-	},
+	// {
+	// 	url:       "https://github.com/matplotlib/matplotlib",
+	// 	reference: "v3.8.2",
+	// },
 	{
 		url:       "https://github.com/pytest-dev/pytest",
 		reference: "v7.4.3",
