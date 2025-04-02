@@ -1,5 +1,5 @@
 (parse_test.ParserData) {
-  Metadata: (map[string][]string) (len=22) {
+  Metadata: (map[string][]string) (len=24) {
     (string) (len=7) ":action": ([]string) (len=1) {
       (string) (len=11) "file_upload"
     },
@@ -32,6 +32,9 @@
     (string) (len=11) "description": ([]string) (len=1) {
       (string) (len=2011) "Chardet: The Universal Character Encoding Detector\n--------------------------------------------------\n\n.. image:: https://img.shields.io/travis/chardet/chardet/stable.svg\n   :alt: Build status\n   :target: https://travis-ci.org/chardet/chardet\n\n.. image:: https://img.shields.io/coveralls/chardet/chardet/stable.svg\n   :target: https://coveralls.io/r/chardet/chardet\n\n.. image:: https://img.shields.io/pypi/v/chardet.svg\n   :target: https://warehouse.python.org/project/chardet/\n   :alt: Latest version on PyPI\n\n.. image:: https://img.shields.io/pypi/l/chardet.svg\n   :alt: License\n\n\nDetects\n - ASCII, UTF-8, UTF-16 (2 variants), UTF-32 (4 variants)\n - Big5, GB2312, EUC-TW, HZ-GB-2312, ISO-2022-CN (Traditional and Simplified Chinese)\n - EUC-JP, SHIFT_JIS, CP932, ISO-2022-JP (Japanese)\n - EUC-KR, ISO-2022-KR, Johab (Korean)\n - KOI8-R, MacCyrillic, IBM855, IBM866, ISO-8859-5, windows-1251 (Cyrillic)\n - ISO-8859-5, windows-1251 (Bulgarian)\n - ISO-8859-1, windows-1252, MacRoman (Western European languages)\n - ISO-8859-7, windows-1253 (Greek)\n - ISO-8859-8, windows-1255 (Visual and Logical Hebrew)\n - TIS-620 (Thai)\n\n.. note::\n   Our ISO-8859-2 and windows-1250 (Hungarian) probers have been temporarily\n   disabled until we can retrain the models.\n\nRequires Python 3.7+.\n\nInstallation\n------------\n\nInstall from `PyPI <https://pypi.org/project/chardet/>`_::\n\n    pip install chardet\n\nDocumentation\n-------------\n\nFor users, docs are now available at https://chardet.readthedocs.io/.\n\nCommand-line Tool\n-----------------\n\nchardet comes with a command-line script which reports on the encodings of one\nor more files::\n\n    % chardetect somefile someotherfile\n    somefile: windows-1252 with confidence 0.5\n    someotherfile: ascii with confidence 1.0\n\nAbout\n-----\n\nThis is a continuation of Mark Pilgrim's excellent original chardet port from C, and `Ian Cordasco <https://github.com/sigmavirus24>`_'s\n`charade <https://github.com/sigmavirus24/charade>`_ Python 3-compatible fork.\n\n:maintainer: Dan Blanchard\n"
     },
+    (string) (len=7) "dynamic": ([]string) (len=1) {
+      (string) (len=12) "license-file"
+    },
     (string) (len=8) "filetype": ([]string) (len=1) {
       (string) (len=11) "bdist_wheel"
     },
@@ -44,6 +47,9 @@
     (string) (len=7) "license": ([]string) (len=1) {
       (string) (len=4) "LGPL"
     },
+    (string) (len=12) "license_file": ([]string) (len=1) {
+      (string) (len=7) "LICENSE"
+    },
     (string) (len=10) "maintainer": ([]string) (len=1) {
       (string) (len=16) "Daniel Blanchard"
     },
@@ -54,7 +60,7 @@
       (string) (len=17) "md5_digest exists"
     },
     (string) (len=16) "metadata_version": ([]string) (len=1) {
-      (string) (len=3) "2.2"
+      (string) (len=3) "2.4"
     },
     (string) (len=4) "name": ([]string) (len=1) {
       (string) (len=7) "chardet"

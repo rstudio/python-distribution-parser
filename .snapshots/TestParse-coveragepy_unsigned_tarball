@@ -1,5 +1,5 @@
 (parse_test.ParserData) {
-  Metadata: (map[string][]string) (len=24) {
+  Metadata: (map[string][]string) (len=25) {
     (string) (len=7) ":action": ([]string) (len=1) {
       (string) (len=11) "file_upload"
     },
@@ -39,7 +39,7 @@
     (string) (len=24) "description_content_type": ([]string) (len=1) {
       (string) (len=10) "text/x-rst"
     },
-    (string) (len=7) "dynamic": ([]string) (len=12) {
+    (string) (len=7) "dynamic": ([]string) (len=13) {
       (string) (len=6) "author",
       (string) (len=12) "author-email",
       (string) (len=10) "classifier",
@@ -48,6 +48,7 @@
       (string) (len=9) "home-page",
       (string) (len=8) "keywords",
       (string) (len=7) "license",
+      (string) (len=12) "license-file",
       (string) (len=11) "project-url",
       (string) (len=14) "provides-extra",
       (string) (len=15) "requires-python",
@@ -65,11 +66,14 @@
     (string) (len=7) "license": ([]string) (len=1) {
       (string) (len=10) "Apache 2.0"
     },
+    (string) (len=12) "license_file": ([]string) (len=1) {
+      (string) (len=11) "LICENSE.txt"
+    },
     (string) (len=10) "md5_digest": ([]string) (len=1) {
       (string) (len=17) "md5_digest exists"
     },
     (string) (len=16) "metadata_version": ([]string) (len=1) {
-      (string) (len=3) "2.2"
+      (string) (len=3) "2.4"
     },
     (string) (len=4) "name": ([]string) (len=1) {
       (string) (len=8) "coverage"

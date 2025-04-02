@@ -1,5 +1,5 @@
 (parse_test.ParserData) {
-  Metadata: (map[string][]string) (len=22) {
+  Metadata: (map[string][]string) (len=23) {
     (string) (len=7) ":action": ([]string) (len=1) {
       (string) (len=11) "file_upload"
     },
@@ -19,7 +19,8 @@
     (string) (len=24) "description_content_type": ([]string) (len=1) {
       (string) (len=10) "text/x-rst"
     },
-    (string) (len=7) "dynamic": ([]string) (len=1) {
+    (string) (len=7) "dynamic": ([]string) (len=2) {
+      (string) (len=12) "license-file",
       (string) (len=13) "requires-dist"
     },
     (string) (len=8) "filetype": ([]string) (len=1) {
@@ -31,6 +32,9 @@
     (string) (len=7) "license": ([]string) (len=1) {
       (string) (len=12) "BSD-3-Clause"
     },
+    (string) (len=12) "license_file": ([]string) (len=1) {
+      (string) (len=11) "LICENSE.rst"
+    },
     (string) (len=10) "maintainer": ([]string) (len=1) {
       (string) (len=7) "Pallets"
     },
@@ -41,7 +45,7 @@
       (string) (len=17) "md5_digest exists"
     },
     (string) (len=16) "metadata_version": ([]string) (len=1) {
-      (string) (len=3) "2.2"
+      (string) (len=3) "2.4"
     },
     (string) (len=4) "name": ([]string) (len=1) {
       (string) (len=5) "click"
