@@ -6,7 +6,7 @@ require (
 	github.com/bradleyjkemp/cupaloy v2.3.0+incompatible
 	github.com/google/go-cmp v0.7.0
 	github.com/samber/lo v1.51.0
-	github.com/stretchr/testify v1.11.0
+	github.com/stretchr/testify v1.11.1
 	golang.org/x/crypto v0.41.0
 	golang.org/x/text v0.28.0
 )
