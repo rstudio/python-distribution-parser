@@ -20,7 +20,7 @@ github.com/samber/lo
 github.com/samber/lo/internal/constraints
 github.com/samber/lo/internal/rand
 github.com/samber/lo/mutable
-# github.com/stretchr/testify v1.11.0
+# github.com/stretchr/testify v1.11.1
 ## explicit; go 1.17
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/assert/yaml
