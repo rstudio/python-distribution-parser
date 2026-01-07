@@ -390,7 +390,6 @@ func filterData(data ParserData) ParserData {
 
 	fields := []string{
 		"blake2_256_digest",
-		"md5_digest",
 		"sha256_digest",
 	}
 
