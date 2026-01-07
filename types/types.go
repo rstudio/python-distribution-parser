@@ -21,7 +21,6 @@ type PackageFile struct {
 	SignedFilename     string                      `json:"signed_filename"`
 	SignedBaseFilename string                      `json:"signed_base_filename"`
 	GPGSignature       *Signature                  `json:"gpg_signature"`
-	MD5Digest          string                      `json:"md5_digest"`
 	SHA2Digest         string                      `json:"sha256_digest"`
 	Blake2_256Digest   string                      `json:"blake2_256_digest"`
 }
@@ -61,7 +60,6 @@ func (pf *PackageFile) MetadataMap() map[string][]string {
 	for _, key := range ignoredKeys {
 		delete(result, key)
 	}
-
 
 	// remove any keys that are an empty value, unless twine expects them
 	result = lo.OmitBy(result, func(key string, value []string) bool {

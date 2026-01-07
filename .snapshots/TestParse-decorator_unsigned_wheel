@@ -1,5 +1,5 @@
 (parse_test.ParserData) {
-  Metadata: (map[string][]string) (len=22) {
+  Metadata: (map[string][]string) (len=21) {
     (string) (len=7) ":action": ([]string) (len=1) {
       (string) (len=11) "file_upload"
     },
@@ -65,9 +65,6 @@
     },
     (string) (len=12) "license_file": ([]string) (len=1) {
       (string) (len=11) "LICENSE.txt"
-    },
-    (string) (len=10) "md5_digest": ([]string) (len=1) {
-      (string) (len=17) "md5_digest exists"
     },
     (string) (len=16) "metadata_version": ([]string) (len=1) {
       (string) (len=3) "2.4"

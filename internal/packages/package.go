@@ -39,7 +39,6 @@ func NewPackageFile(filename string) (*types.PackageFile, error) {
 		SafeName:           safeName,
 		SignedFilename:     signedFilename,
 		SignedBaseFilename: signedBaseFilename,
-		MD5Digest:          hexdigest.md5,
 		SHA2Digest:         hexdigest.sha2,
 		Blake2_256Digest:   hexdigest.blake2,
 	}, nil

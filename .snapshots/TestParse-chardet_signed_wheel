@@ -1,5 +1,5 @@
 (parse_test.ParserData) {
-  Metadata: (map[string][]string) (len=24) {
+  Metadata: (map[string][]string) (len=23) {
     (string) (len=7) ":action": ([]string) (len=1) {
       (string) (len=11) "file_upload"
     },
@@ -55,9 +55,6 @@
     },
     (string) (len=16) "maintainer_email": ([]string) (len=1) {
       (string) (len=23) "dan.blanchard@gmail.com"
-    },
-    (string) (len=10) "md5_digest": ([]string) (len=1) {
-      (string) (len=17) "md5_digest exists"
     },
     (string) (len=16) "metadata_version": ([]string) (len=1) {
       (string) (len=3) "2.4"
