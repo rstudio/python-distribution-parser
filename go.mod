@@ -5,7 +5,7 @@ go 1.25.5
 require (
 	github.com/bradleyjkemp/cupaloy v2.3.0+incompatible
 	github.com/google/go-cmp v0.7.0
-	github.com/samber/lo v1.52.0
+	github.com/samber/lo v1.53.0
 	github.com/stretchr/testify v1.11.1
 	golang.org/x/crypto v0.48.0
 	golang.org/x/text v0.34.0
