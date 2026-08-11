@@ -37,9 +37,7 @@ jobs:
           python-version: '3.x'
       # Rust is required to build some packages
       - name: install rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
+        uses: dtolnay/rust-toolchain@stable
       - name: install python dependencies
         run: pip install twine build wheel
       - name: install go dependencies
@@ -49,12 +47,7 @@ jobs:
       - name: build
         run: go build
       - name: test
-        run: gotestsum --jsonfile unit-tests.json
-      - name: annotate tests
-        if: always()
-        uses: guyarb/golang-test-annotations@v0.9.0
-        with:
-          test-results: unit-tests.json
+        run: gotestsum --format github-actions
       - name: notify slack on failure
         uses: craftech-io/slack-action@v1
         if: failure() && github.event_name == 'schedule'
