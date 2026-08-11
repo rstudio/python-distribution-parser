@@ -44,7 +44,7 @@
       (string) (len=11) "LICENSE.txt"
     },
     (string) (len=16) "metadata_version": ([]string) (len=1) {
-      (string) (len=3) "2.4"
+      (string) (len=3) "2.5"
     },
     (string) (len=4) "name": ([]string) (len=1) {
       (string) (len=5) "hatch"
