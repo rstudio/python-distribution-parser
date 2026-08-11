@@ -124,6 +124,8 @@ var HeaderAttrs2_4 = append(HeaderAttrs2_3, []HeaderAttr{ // PEP 639
 	{"License-File", "license_file", false},
 }...)
 
+var HeaderAttrs2_5 = HeaderAttrs2_4 // PEP 639 finalized
+
 var HeaderAttrs = map[string][]HeaderAttr{
 	"1.0": HeaderAttrs1_0,
 	"1.1": HeaderAttrs1_1,
@@ -133,6 +135,7 @@ var HeaderAttrs = map[string][]HeaderAttr{
 	"2.2": HeaderAttrs2_2,
 	"2.3": HeaderAttrs2_3,
 	"2.4": HeaderAttrs2_4,
+	"2.5": HeaderAttrs2_5,
 }
 
 type Distribution interface {
